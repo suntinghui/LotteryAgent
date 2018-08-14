@@ -1,0 +1,54 @@
+<view class='container'>
+
+  <text class='title-text' style='font-size:16px;'>第一步：<text style='color:#DC143C;'>个人信息已通过审核</text></text>
+
+  <text class='tip-text' style="text-align: right; margin-top:10rpx;">2018年08月01日</text>
+
+  <view class='row-box' style='align-items:center; border: 1px solid #e3e3e3; padding:10rpx; margin-top:30rpx;'>
+    <image class='image' src='/img/head-placehold.png'></image>
+
+    <view class='col-box'>
+      <view class='row-box'>
+        <text class='title-text' style='width:180rpx;text-align:right;'>真实姓名：</text>
+        <text class='title-text' style='width:320rpx;'>莫大灵</text>
+      </view>
+
+      <view class='row-box'>
+        <text class='title-text' style='width:180rpx;text-align:right;'>身份证：</text>
+        <text class='title-text' style='width:320rpx;'>110425199007279870</text>
+      </view>
+
+      <view class='row-box'>
+        <text class='title-text' style='width:180rpx;text-align:right;'>身份地址：</text>
+        <text class='title-text' style='width:320rpx;'>北京市东城区东台大街二条334号23室</text>
+      </view>
+    </view>
+
+  </view>
+
+  <text class='title-text' style='font-size:16px; margin-top:30rpx;'>第二步：<text style='color:#DC143C;'>门店审核已通过</text></text>
+
+  <text class='tip-text' style="text-align: right; margin-top:10rpx;">2018年08月10日</text>
+
+  <view class='row-box' style='justify-content: space-between;'>
+    <text class='title-text' style="color:#333333;">北京建外赛特店</text>
+    <text class='title-text'>刘先生 18500972879</text>
+  </view>
+  <text class='tip-text' style=" margin-top:10rpx;">北京三里屯A座底商A01铺面 福彩专营店</text>
+
+  <text class='title-text' style='font-size:16px; margin-top:30rpx;'>第三步：<text style='color:#DC143C;'>工作时段已审核并登记</text></text>
+
+  <text class='tip-text' style="text-align: right; margin-top:10rpx;">2018年08月12日</text>
+
+  <view class='row-box' style='margin-top:30rpx;justify-content: space-between;'>
+    <text class='title-text' style='font-size:16px; '>第三步：缴纳保证金</text>
+    <text class='title-text' style="font-size:16px; color:#DC143C;">￥2000元</text>
+  </view>
+  <text class='tip-text' style="margin-top:10rpx;">1、支付费用的义务。无论委托合同是否有偿，委托人都有义务提供或补偿委托事务的必要费用；
+  2、付酬义务。对于有偿委托合同，委托人应用受托人支付约定的报酬；
+  3、赔偿责任。
+  </text>
+
+  <button class='nextBtn' type='primary' bindtap='payAction'>微信支付</button>
+
+</view>

@@ -1,0 +1,43 @@
+.containter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20rpx 30rpx;
+}
+
+.title {
+  color: #333333;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0rpx 20rpx;
+  text-align: center;
+}
+
+.content {
+  color: #333333;
+  font-size: 14px;
+}
+
+.ntitle {
+  margin-bottom: 30rpx;
+}
+
+.bottom-box {
+  width: 100%;
+  margin: 10rpx 30rpx;
+}
+
+checkbox-group {
+  align-items: center;
+}
+
+.checkbox {
+  font-size: 15px;
+  zoom: 80%;
+}
+
+.btn {
+  margin: 30rpx 80rpx;
+  padding: 10rpx;
+  font-size: 13px;
+}

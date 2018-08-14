@@ -1,0 +1,96 @@
+<form bindsubmit="formSubmit">
+
+  <view class='container'>
+
+    <view style='display: flex; flex-direction: row; align-items:center; justify-content:space-between;'>
+      <view>
+        <view class='info-box'>
+          <text class='title-text'>身份证照片：</text>
+          <button class='content-info btn' bindtap='chooseCardImg'>打开图库</button>
+        </view>
+        <text class='tip-text'>申请人身份证正面照片</text>
+      </view>
+      <image style='width:100rpx;height:100rpx;border: 1px solid #eee;' src='{{cardImgUrl}}'></image>
+    </view>
+
+
+    <view style='display: flex; flex-direction: row; align-items:center; justify-content:space-between;'>
+      <view>
+        <view class='info-box'>
+          <text class='title-text'>申请人照片：</text>
+          <button class='content-info btn' bindtap='choosePerImg'>打开图库</button>
+        </view>
+        <text class='tip-text'>申请人个人免冠大头照</text>
+      </view>
+      <image style='width:100rpx;height:100rpx;border: 1px solid #eee;' src='{{perImgUrl}}'></image>
+    </view>
+
+    <view class='info-box'>
+      <text class='title-text'>手机号：</text>
+      <input name="AGET_Mobile" value='{{AGET_Mobile}}' class='content-info input' type="number" placeholder="请输入手机号" maxlength="11" bindinput="bindKeyMobileInput"></input>
+    </view>
+
+    <view class='info-box' style='margin-top:0rpx;'>
+      <text class='title-text'> </text>
+      <view class='info-box'>
+        <input name="code" class='content-info input' type="number" placeholder="验证码" maxlength="6" style="width:180rpx;"></input>
+        <button class='content-info btn' style='width:170rpx;' bindtap='sendSMSAction1' disabled='{{canResend1}}'>{{resendText1}}</button>
+      </view>
+    </view>
+
+    <view class='info-box'>
+      <text class='title-text'>注册门店：</text>
+      <picker bindchange="bindShopChange" value="{{shopIndex}}" range="{{shopArr}}">
+          <view class='content-info input' style='width:400rpx;'>{{shopArr[shopIndex]}}</view>
+      </picker>
+    </view>
+    <text class='tip-text'>必选，请注册后到店与店长沟通，完成线下审核</text>
+
+    <view class='info-box'>
+      <text class='title-text'>居住地址：</text>
+      <input class='content-info input' value='居住地址' type="text" placeholder="请输入居住地址"></input>
+    </view>
+    <text class='tip-text'>注册成功一个月内可以修改2次</text>
+
+    <view class='info-box'>
+      <text class='title-text'>工作时段：</text>
+
+      <view class='col-box'>
+
+        <checkbox-group>
+          <label class="checkbox" wx:for="{{week}}" wx:key="item">
+            <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </label>
+        </checkbox-group>
+
+        <radio-group name="AGET_WorkMode" style="margin-top:20rpx;">
+          <label class="radio" wx:for="{{time}}" wx:key="item">
+            <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <text class='tip-text'>请选择比较稳定的工作时段，以便安排委托事项。</text>
+
+    <view class='info-box'>
+      <text class='title-text'>其他联系人：</text>
+      <input name="AGET_SecondName" value='其他联系人' class='content-info input' type="text" placeholder="请输入姓名" maxlength="20"></input>
+    </view>
+
+    <view class='info-box'>
+      <text class='title-text'>手机号：</text>
+      <input name="AGET_SecondMobile" value='{{AGET_SecondMobile}}' class='content-info input' type="number" placeholder="联系人手机号" maxlength="11" bindinput="bindKeySecMobileInput" ></input>
+    </view>
+    <view class='info-box' style='margin-top:0rpx;'>
+      <text class='title-text'> </text>
+      <view class='info-box'>
+        <input class='content-info input' type="number" placeholder="验证码" maxlength="6" style="width:180rpx;"></input>
+        <button class='content-info btn' style='width:170rpx;' bindtap='sendSMSAction2' disabled='{{canResend2}}'>{{resendText2}}</button>
+      </view>
+    </view>
+
+    <button class='nextBtn' type='primary' formType="submit">保存修改</button>
+
+  </view>
+
+</form>

@@ -1,0 +1,11 @@
+<template name="fanOtherSayTemp">
+
+  <view class='other-container'>
+
+    <image class='other-img' src='/img/head-placehold.png'></image>
+
+    <text class='other-text'>{{item.MESG_Text}}</text>
+
+  </view>
+
+</template>

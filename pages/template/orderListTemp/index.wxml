@@ -1,0 +1,43 @@
+<template name="orderListTemp">
+
+  <view class='order-container'>
+
+    <view class='order-box1' style='align-items: center;' >
+      <image class='order-head-img' src='/img/head-placehold.png'></image>
+
+      <view class='order-box2' style='margin-left:20rpx;'>
+
+        <view class='order-box1' style='justify-content:space-between'>
+          <text class='order-name'>{{item.name}}</text>
+          <text class='order-from'>{{item.from}}</text>
+        </view>
+
+        <text class='order-num' decode='true'>彩券{{item.num}}&nbsp;&nbsp;{{item.opendate}}开奖</text>
+
+        <view class='order-box1' style='justify-content:space-between'>
+          <text class='order-type'>{{item.type}}</text>
+          <text class='order-type'>{{item.class}}</text>
+          <text class='order-totalmoney'>￥{{item.totalmoney}}元</text>
+        </view>
+
+      </view>
+
+    </view>
+
+    <view class='order-box1' style='justify-content:space-between;margin-top:10rpx;'>
+
+      <text class='order-income'>分成收益：￥{{item.income}}元</text>
+
+      <text class='order-state' wx:if="{{item.isComplate}}">已完成分成兑付</text>
+
+      <button class='order-btn' wx:else  type="primary" size="mini">支付分成￥{{item.payment}}元</button>
+
+    </view>
+
+    <text class='order-tip' wx:if="{{item.isComplate}}" style="margin-top:10rpx;">已在{{item.datetime}}结算分成，订单号：{{item.orderId}}</text>
+    <text class='order-tip' wx:else style="margin-top:10rpx;">请在{{item.datetime}}前结算分成，还有{{item.resttime}}</text>
+
+
+  </view>
+
+</template>

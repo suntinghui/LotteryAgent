@@ -1,0 +1,36 @@
+.stat-box1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 15rpx;
+  align-items: center;
+}
+
+.stat-type {
+  width:360rpx;
+  color: #666666;
+  font-size: 14px;
+  text-align: right;
+}
+
+.stat-line {
+  margin-left: 20rpx;
+  font-size: 14px;
+  border-bottom: 1px dotted #528B8B;
+  flex-grow: 1;
+}
+
+.stat-rank {
+  color: #1C86EE;
+  font-size: 14px;
+  width:140rpx;
+  text-align: right;
+}
+
+.upDown {
+  font-size: 13px;
+  width: 50rpx;
+  color: red;
+  margin-left: 5rpx;
+}

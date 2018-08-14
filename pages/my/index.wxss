@@ -1,0 +1,57 @@
+@import "../template/ratingStarTemp/index.wxss";
+@import "../template/signedListTemp/index.wxss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+
+.my-info-box {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.my-info-head {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid #eee;
+  padding: 2px;
+}
+
+.my-info-mid-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.my-name {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.my-info-other {
+  font-size: 14px;
+  color: #666666;
+}
+
+.my-info-right-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.update-btn {
+  font-size: 13px;
+  margin: 20rpx auto 20rpx 0;
+}
+
+.agreement-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -1,0 +1,63 @@
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.todo-head-img {
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #eee;
+  padding: 1px;
+}
+
+.todo-info-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  flex-grow: 1;
+}
+
+.todo-info-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333333;
+}
+
+.todo-num-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-info-from {
+  font-size: 15px;
+  color: #666666;
+}
+
+.todo-info-num {
+  font-size: 16px;
+  margin-left: 20rpx;
+}
+
+.todo-info-date {
+  font-size: 15px;
+  color: #666666;
+}
+
+.todo-state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-btn {
+  font-size: 12px;
+}
+
+.todo-state {
+  font-size: 13px;
+  margin-top: 20rpx;
+}

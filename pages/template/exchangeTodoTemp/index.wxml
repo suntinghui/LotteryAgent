@@ -1,0 +1,29 @@
+<template name="exchangeTodoTemp">
+  <view class='todo-container'>
+
+    <image class='todo-head-img' src="{{item.LTLS_Customer.pic}}"></image>
+
+    <view class='todo-info-box'>
+      <text class='todo-info-name'>{{item.LTLS_Customer.nick}}</text>
+      <view class='todo-num-box'>
+        <text class='todo-info-from'>{{item.LTLS_Coupon.title}}</text>
+        <text class='todo-info-num'>{{item.LTLS_Code}}</text>
+      </view>
+
+      <text wx:if="{{item.LTLS_State==1}}" class='todo-info-date' style='color:blue;' decode='true'>{{item.LTLS_Shop.name}}&nbsp;&nbsp;{{item.LTLS_ChangeTime}}</text>
+
+      <text wx:else class='todo-info-date'>截至：{{item.LTLS_Coupon.deadline}}</text>
+
+    </view>
+
+    <view class='todo-state-box'>
+
+      <button class='todo-btn' bindtap='showDialog' type="{{item.LTLS_State==0?'warn':'default'}}">{{item.LTLS_Lottery.name}}</button>
+
+      <text class='todo-state' style="color:{{item.LTLS_State==0?'red':'blue'}};">{{item.StateDesc}}</text>
+
+    </view>
+
+  </view>
+
+</template>

@@ -1,0 +1,2 @@
+@import "../template/groupReplyTemp/index.wxss";
+@import "../template/groupTopicTemp/index.wxss";

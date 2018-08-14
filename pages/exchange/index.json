@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "买伴",
+  "usingComponents": {
+    "dialog": "../components/dialog-wxapp/dialog"
+  }
+}

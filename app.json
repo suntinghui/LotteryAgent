@@ -1,0 +1,62 @@
+{
+  "pages": [
+    
+    "pages/start/index",
+    "pages/exchange/index",
+    "pages/customer/index",
+    "pages/my/index",
+    "pages/order/index",
+    "pages/stat/index",
+    "pages/agreement/index",
+    "pages/userinfo/index",
+    "pages/register1/index",
+    "pages/register2/index",
+    "pages/register3/index",
+    "pages/register4/index",
+    "pages/fanchat/index"
+    
+  ],
+  "tabBar": {
+    "color": "#8f9091",
+    "selectedColor": "#09bb07",
+    "list": [
+      {
+        "pagePath": "pages/exchange/index",
+        "text": "兑换券",
+        "iconPath": "img/icon_tab_exchange_normal.png",
+        "selectedIconPath": "img/icon_tab_exchange_selected.png"
+      },
+      {
+        "pagePath": "pages/customer/index",
+        "text": "顾客",
+        "iconPath": "img/icon_tab_customer_normal.png",
+        "selectedIconPath": "img/icon_tab_customer_selected.png"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "text": "订单",
+        "iconPath": "img/icon_tab_order_normal.png",
+        "selectedIconPath": "img/icon_tab_order_selected.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "img/icon_tab_my_normal.png",
+        "selectedIconPath": "img/icon_tab_my_selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "买伴",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

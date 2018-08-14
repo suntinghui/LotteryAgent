@@ -1,0 +1,16 @@
+<template name="groupReplyTemp">
+
+  <view class='my-container'>
+
+    <view class='my-box'>
+      <text class='my-content'>{{item.CMMT_Text}}</text>
+
+      <view class='my-bottom-box'>
+        <text class='my-date'>{{item.CreateDateFormat}}</text>
+        <image class='my-img' src='{{item.CMMT_Customer_pic}}'></image>
+      </view>
+    </view>
+
+  </view>
+
+</template>

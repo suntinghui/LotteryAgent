@@ -1,0 +1,65 @@
+<view class='container'>
+
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view class='info-box'>
+      <text class='info-text'>笔名：</text>
+      <input class='info-input' type='text' name="pickname" placeholder="请输入笔名" />
+    </view>
+    <text class='info-tip'>注册成功后一个月只能修改两次</text>
+
+    <view class='info-box2' style='margin-top:30rpx;'>
+
+      <view class='info-box1'>
+
+        <view class='info-box'>
+          <text class='info-text'>头像：</text>
+          <button class='info-btn' name="headimg" size='mini' bindtap='changeHeadImg'>找开图库</button>
+        </view>
+        <text class='info-tip'>头像每个月可修改一次</text>
+
+      </view>
+
+      <image class='info-img' src="{{headImg}}"></image>
+
+    </view>
+
+    <view class='info-box' style='margin-top:30rpx;'>
+      <text class='info-text'>手机号：</text>
+      <input class='info-input' type='number' maxlength="11" name="phonenum" placeholder="请输入手机号" />
+    </view>
+
+    <view class='info-box' style='margin-top:20rpx;'>
+      <text class='info-text'></text>
+      <input class='info-input' style='width:200rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
+      <button class='info-btn' name="headimg" size='mini'>发送</button>
+    </view>
+
+    <view class='info-box' style='margin-top:30rpx;'>
+      <text class='info-text'>居住地址：</text>
+      <input class='info-area' name="pickname" placeholder="请输入居住地址" />
+    </view>
+    <text class='info-tip'>注册成功后一个月只能修改两次</text>
+
+    <view class='info-box' style='margin-top:50rpx;'>
+      <text class='info-text'>其他联系人：</text>
+      <input class='info-input' type='text' name="pickname" placeholder="请输入姓名" />
+    </view>
+    <view class='info-box' style='margin-top:20rpx;'>
+      <text class='info-text'>联系人手机：</text>
+      <input class='info-input' type='number' maxlength="11" name="phonenum" placeholder="请输入手机号" />
+    </view>
+
+    <view class='info-box' style='margin-top:20rpx;'>
+      <text class='info-text'></text>
+      <input class='info-input' style='width:200rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
+      <button class='info-btn' name="headimg" size='mini'>发送</button>
+    </view>
+
+    <view class='info-box'>
+      <button class='submit-btn' type='primary'>保存修改</button>
+    </view>
+
+  </form>
+
+</view>

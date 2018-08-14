@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 30rpx 20rpx 5rpx;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  align-items: center;
+}
+
+.col-box {
+  display: flex;
+  flex-direction: column;
+  width: 450rpx;
+  margin-left: 30rpx;
+}
+
+.title-text {
+  font-size: 15px;
+  color: #666666;
+  width: 250rpx;
+  text-align: right;
+}
+
+.content-info {
+  margin-left: 30rpx;
+}
+
+.tip-text {
+  font-size: 12px;
+  color: #a3a3a3;
+  margin-left: 280rpx;
+  margin-top: 10rpx;
+}
+
+.btn {
+  font-size: 13px;
+}
+
+.input {
+  font-size: 15px;
+  color:#333333;
+  border: 1px solid #eee;
+  padding: 10rpx 20rpx;
+}
+
+.checkbox {
+  font-size: 18px;
+  zoom: 80%;
+  margin-right: 30rpx;
+}
+
+.radio {
+  font-size: 18px;
+  zoom: 80%;
+  margin-right: 30rpx;
+}
+
+.nextBtn {
+  font-size: 15px;
+  margin: 40rpx;
+  width: 400rpx;
+  align-self: center;
+}

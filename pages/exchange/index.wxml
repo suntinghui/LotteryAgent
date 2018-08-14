@@ -1,0 +1,51 @@
+<import src="../template/exchangeTodoTemp/index.wxml" />
+<import src="../template/exchangeDoneTemp/index.wxml" />
+
+<view class="page">
+
+<dialog data-model="dialogvisible" visible="{{dialogvisible}}" position="center" title="haha" fullscreen="{{fullscreen}}" opacity="0.4" show-close="true" show-footer="true" width="85" close-on-click-modal="true" bindclose="handleClose" bindopen="handleOpen" bindconfirm="handleConfirm">
+
+          <view style='height:20vh;'>
+            <image style='width:100rpx; height:100rpx;' src='../../img/head-placehold.png'></image>
+          </view>
+          
+        </dialog>
+
+
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+
+      <view class="weui-tab__panel">
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+          <block wx:for="{{todoList}}" wx:key="index">
+            <view class='todo-box'>
+              <template is="exchangeTodoTemp" data="{{item}}" />
+            </view>
+          </block>
+
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <block wx:for="{{doneList}}" wx:key="index">
+            <view class='done-box'>
+              <template is="exchangeDoneTemp" data="{{item}}" />
+            </view>
+          </block>
+
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

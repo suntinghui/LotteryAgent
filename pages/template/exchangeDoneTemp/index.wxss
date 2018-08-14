@@ -1,0 +1,54 @@
+.done-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.done-head-img {
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #eee;
+  padding: 2px;
+}
+
+.done-info-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  flex-grow: 1;
+}
+
+.done-info-name {
+  font-size: 16px;
+  color: #333333;
+}
+
+.done-info-num {
+  font-size: 16px;
+  color: #09bb07;
+}
+
+.done-info-date {
+  font-size: 15px;
+  color: #666666;
+}
+
+.done-state-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.done-info-branch {
+  font-size: 15px;
+  color: #666666;
+}
+
+.done-state {
+  font-size: 14px;
+  margin-top: 20rpx;
+  align-self: flex-end;
+}

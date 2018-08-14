@@ -1,0 +1,22 @@
+<template name="exchangeDoneTemp">
+  <view class='done-container'>
+
+    <image class='done-head-img' src='/img/head-placehold.png'></image>
+
+    <view class='done-info-box'>
+      <text class='done-info-name'>{{item.name}}</text>
+      <text class='done-info-num'>兑换 {{item.num}}</text>
+      <text class='done-info-date'>{{item.date}}开奖</text>
+    </view>
+
+    <view class='done-state-box'>
+      <text class='done-info-branch'>{{item.branch}}</text>
+
+      <text wx:if="{{!item.lucky}}" class='done-state' style='color:blue;'>未中奖</text>
+      <text wx:else class='done-state' style='color:red;'>中奖￥{{item.money}}元</text>
+
+    </view>
+
+  </view>
+
+</template>

@@ -1,0 +1,23 @@
+.my-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 40rpx 20rpx;
+}
+
+.my-text {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  max-width: 430rpx;
+  padding: 15rpx 30rpx;
+  font-size: 14px;
+  background-color:#09bb07;
+}
+
+.my-img {
+  width: 85rpx;
+  height: 85rpx;
+  border: 1px solid #eee;
+  margin-left: 20rpx;
+}

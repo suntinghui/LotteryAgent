@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info-box1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-box2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info-text {
+  font-size: 15px;
+  size: #666666;
+  width: 200rpx;
+  text-align: right;
+}
+
+.info-input {
+  border: 1px solid #eee;
+  padding: 15rpx 20rpx;
+  font-size: 15px;
+  margin-left: 30rpx;
+}
+
+.info-tip {
+  color: #a3a3a3;
+  margin: 5rpx 0rpx 0rpx 230rpx;
+  font-size: 14px;
+}
+
+.info-btn {
+  font-size: 14px;
+  margin-left: 30rpx;
+  align-self: flex-start;
+}
+
+.info-img {
+  width: 80rpx;
+  height: 80rpx;
+  border: 1px solid #eee;
+  padding: 1px;
+  margin-left: 30rpx;
+}
+
+.info-area {
+  border: 1px solid #eee;
+  padding: 6rpx 20rpx;
+  font-size: 15px;
+  margin-left: 30rpx;
+}
+
+.submit-btn {
+  font-size: 14px;
+  width: 400rpx;
+  margin-top: 50rpx;
+}

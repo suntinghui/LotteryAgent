@@ -1,0 +1,29 @@
+<template name="fanGroupTemp">
+
+  <view class='fan-container'>
+
+    <image class='fan-head-img' src='{{item.USER_Pic}}'></image>
+
+    <view class='fan-info-box'>
+
+      <text class='fan-info-name'>{{item.USER_Nickname}}</text>
+      <view class='fan-money-box'>
+        <text class='fan-info-count'>委托：{{item.USER_DelegateCount}} 张</text>
+        <text class='fan-info-money'>￥{{item.USER_DelegateMoney}}元</text>
+      </view>
+
+    </view>
+
+    <view class='fan-state-box'>
+      <text class='fan-day'>{{item.CreateDateFormat}}</text>
+
+      <view class='fan-badge-box'>
+        <button bindtap='chatAction' data-userid="{{item.USER_Uid}}" class='fan-btn' type="primary" size="mini">私聊</button>
+        <view class="weui-badge weui-badge_dot fan-badge" wx:if="{{item.NewChats}}"></view>
+      </view>
+
+    </view>
+
+  </view>
+
+</template>

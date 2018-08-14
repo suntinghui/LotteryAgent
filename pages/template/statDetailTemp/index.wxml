@@ -1,0 +1,113 @@
+<template name="statDetailTemp">
+
+  <view class='stat-box1'>
+    <text class='stat-type'>累计委托兑换券：{{statDetail.ljwtdhq}}张</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>兑换奖券：333张</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>100%</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>中奖奖券：33张</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>10%</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>奖金合计：￥756</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名109</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>分成合计：￥398</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>97%</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>个人收益合计：￥318</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名110</text>
+  </view>
+
+
+
+  <view class='stat-box1' style='align-items:center; margin-top:20rpx;'>
+    <text style='width:300rpx; font-size:15px; font-weight:500;'>本月排名</text>
+    <text class='stat-rank' style="width:300rpx; font-size:13px;">本月还剩13天</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>粉丝顾客：103人</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>新增委托顾客：13人</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>本月委托顾客：13人</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'style="color:{{1==2?'red':'green'}};">↓1</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>收到委托奖券：43张</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>兑换奖券：43张</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>中奖奖券：43张</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>奖金额度：￥435</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>支付分成：￥890</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown'>↑23</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>本月收益：￥300</text>
+    <view class='stat-line'></view>
+    <text class='stat-rank'>排名56</text>
+    <text class='upDown' style="color:{{1==2?'red':'green'}};">↓2</text>
+  </view>
+
+  <view class='stat-box1'>
+    <text class='stat-type'>平台费用：￥90</text>
+  </view>
+
+</template>

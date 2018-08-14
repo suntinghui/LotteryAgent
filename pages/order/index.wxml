@@ -1,0 +1,53 @@
+<import src="../template/orderListTemp/index.wxml" />
+<import src="../template/statDetailTemp/index.wxml" />
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+          <view class='order-top-box'>
+            <view class='tip'>累计收益：￥
+              <text class='totalIncome'>{{totalIncome}}</text>元</view>
+            <text class='tip'>积分：{{points}}</text>
+          </view>
+
+          <block wx:for="{{orderList}}" wx:key="index">
+            <view class='order-box'>
+              <template is="orderListTemp" data="{{item}}" />
+            </view>
+          </block>
+
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <view class='order-top-box'>
+            <view class='tip'>累计收益：￥
+              <text class='totalIncome'>{{totalIncome}}</text>元</view>
+            <text class='tip'>积分：{{points}}</text>
+          </view>
+
+          <view class='stat-box'>
+            <template is="statDetailTemp" data="{{statDetail}}" />
+            
+            <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec}}"></ec-canvas>
+
+          </view>
+
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

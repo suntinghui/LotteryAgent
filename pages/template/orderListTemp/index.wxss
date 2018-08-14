@@ -1,0 +1,70 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.order-box1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.order-box2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-head-img {
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #eee;
+  padding: 2px;
+}
+
+.order-name {
+  font-size: 15px;
+  color: #333;
+}
+
+.order-from {
+  font-size: 15px;
+  color: #666;
+}
+
+.order-num {
+  font-size: 15px;
+  color: #666;
+}
+
+.order-type {
+  font-size: 15px;
+  color: red;
+}
+
+.order-totalmoney {
+  font-size: 16px;
+  color: red;
+  font-style: bold;
+}
+
+.order-income {
+  font-size: 15px;
+  color: blue;
+}
+
+.order-state {
+  font-size: 15px;
+  color: #666;
+}
+
+.order-btn {
+  font-size: 13px;
+  margin-right: 0rpx;
+}
+
+.order-tip {
+  font-size: 14px;
+  color: #666;
+}

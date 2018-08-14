@@ -1,0 +1,38 @@
+.signed-info-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.signed-name-box {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 20rpx;
+}
+
+.signed-image {
+  width:80rpx;
+  height:80rpx;
+}
+
+.signed-name {
+  color:#333333;
+  font-size: 15px;
+  font-weight: 500rpx;
+}
+
+.signed-btn {
+  font-size: 12px;
+  margin-right: 0rpx;
+  
+}
+
+.signed-date {
+  color:#666666;
+  font-size: 13px;
+  margin-top: 3rpx;
+}

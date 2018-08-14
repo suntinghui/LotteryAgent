@@ -1,0 +1,51 @@
+<import src="../template/ratingStarTemp/index.wxml" />
+<import src="../template/signedListTemp/index.wxml" />
+
+<view class='container'>
+
+  <view class='my-info-box'>
+
+    <image class='my-info-head' src='/img/head-placehold.png'></image>
+
+    <view class='my-info-mid-box'>
+      <text class='my-name'>马大姐</text>
+      <text class='my-info-other'>建特赛外店</text>
+      <text class='my-info-other'>吴小姐</text>
+    </view>
+
+    <view class='my-info-right-box'>
+      <text class='my-info-other'>积分：3334</text>
+      <template is="wxStar" data="{{wxStar: wxStar}}" />
+      <text class='my-info-other'>124天</text>
+      <text class='my-info-other'>18500972879</text>
+    </view>
+
+  </view>
+
+  <text class='my-info-other' style='margin-top:20rpx;'>北京建国门外芳草地小区4栋305</text>
+
+  <button class='update-btn' size='mini' type="primary" bindtap='updateInfo'>变更个人信息</button>
+
+  <view class='agreement-box'>
+    <text class='my-info-other' bindtap='showAgreement' style="text-decoration:underline;">《北京福彩彩票站买伴业务服务协议》</text>
+    <text class='my-info-other'>已签署</text>
+  </view>
+
+  <text class='my-info-other' style='margin:20rpx 0rpx 0rpx auto;'>建外赛特店 2018年7月16日签订</text>
+
+  <text class='my-info-other' style='color:blue;margin:0rpx 0rpx 20rpx auto;'>有效截止2019年12月12日</text>
+
+  <button class='update-btn' size='mini' type="warn"> 申请解约 </button>
+
+  <text class='my-info-other' bindtap='showAgreement' style="text-decoration:underline;margin:0rpx 0rpx 0rpx 20rpx;">《北京福彩彩票站兑换券兑奖委托协议》</text>
+  <text class='my-info-other' style='color:blue;margin:0rpx 0rpx 20rpx auto;'>已签署30人</text>
+
+
+  <block wx:for="{{signedList}}" wx:key="index">
+    <template is="signedListTemp" data="{{item}}" />
+  </block>
+
+
+
+
+</view>

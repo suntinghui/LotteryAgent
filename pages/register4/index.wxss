@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  
+}
+
+.row-box {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.col-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-text {
+  font-size: 15px;
+  color: #666666;
+}
+
+.tip-text {
+  font-size: 13px;
+  color: #a6a6a6;
+}
+
+.image {
+  width:170rpx;
+  height:170rpx;
+}
+
+.nextBtn {
+  font-size: 15px;
+  margin: 40rpx;
+  width: 400rpx;
+  align-self: center;
+}

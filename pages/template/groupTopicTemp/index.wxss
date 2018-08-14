@@ -1,0 +1,46 @@
+.other-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 40rpx 20rpx;
+  width: 90%;
+}
+
+.other-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.other-content-box {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 30rpx;
+  border: 1px solid #eee;
+  border-radius: 15rpx;
+  padding: 20rpx;
+}
+
+.other-content {
+  color: #666;
+  font-size: 13px;
+  text-align: left;
+}
+
+.other-date-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  align-items: center;
+}
+
+.other-btn {
+  font-size: 12px;
+  margin-right: 30rpx;
+}
+
+.other-date {
+  font-size: 13px;
+  color: #666;
+}

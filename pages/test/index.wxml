@@ -1,0 +1,21 @@
+<import src="../template/fanMySayTemp/index.wxml" />
+<import src="../template/fanOtherSayTemp/index.wxml" />
+
+<view>
+
+  <block wx:for="{{list}}" wx:key="index">
+
+    <view class='box'>
+      <view wx:if="{{item.flag}}">
+        <template is="fanMySayTemp" data="{{item}}" />
+      </view>
+
+      <view wx:else>
+        <template is="fanOtherSayTemp" data="{{item}}" />
+      </view>
+
+    </view>
+
+  </block>
+
+</view>

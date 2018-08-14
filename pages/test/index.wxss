@@ -1,0 +1,2 @@
+@import "../template/fanMySayTemp/index.wxss";
+@import "../template/fanOtherSayTemp/index.wxss";

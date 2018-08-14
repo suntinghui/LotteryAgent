@@ -1,0 +1,49 @@
+<import src="../template/fanMySayTemp/index.wxml" />
+<import src="../template/fanOtherSayTemp/index.wxml" />
+
+<view class='chat-container'>
+
+  <view class='top-box'>
+    <image class='chat-img' src='{{fanItem.USER_Pic}}'></image>
+
+    <view class='mid-box' style='margin-left:30rpx;'>
+      <text class='chat-text' style='color:#333; font-weight:600;'>{{fanItem.USER_Nickname}}</text>
+      <text class='chat-text'>委托券:{{fanItem.USER_DelegateCount}}张</text>
+      <text class='chat-text'>关注买办:{{fanItem.User_AgentCount}}个</text>
+    </view>
+
+    <view class='right-box'>
+      <text class='chat-text'>{{fanItem.CreateDateFormat}}</text>
+      <text class='chat-text'>中奖:{{fanItem.USER_DelegateBonus.count}}张</text>
+      <text class='chat-text' decode='true'>&nbsp;</text>
+    </view>
+
+  </view>
+
+  <view style='margin-bottom:150rpx;'>
+
+    <block wx:for="{{msgList}}" wx:key="index">
+
+      <view class='box'>
+        <view wx:if="{{item.MESG_FromMe}}">
+          <template is="fanMySayTemp" data="{{item}}" />
+        </view>
+
+        <view wx:else>
+          <template is="fanOtherSayTemp" data="{{item}}" />
+        </view>
+
+      </view>
+
+    </block>
+
+  </view>
+
+  <view class='bottom-box'>
+    <textarea class='chat-input' maxlength="140" placeholder="输入文字" auto-height="true" fixed='true' show-confirm-bar="false" cursor-spacing="20px" bindinput='bindInputMsg' value='{{newMsg}}'></textarea>
+
+    <button bindtap='sendMsg' class='chat-btn' type='primary'>发送</button>
+
+  </view>
+
+</view>

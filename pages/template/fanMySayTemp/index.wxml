@@ -1,0 +1,11 @@
+<template name="fanMySayTemp">
+
+  <view class='my-container'>
+
+    <text class='my-text'>{{item.MESG_Text}}</text>
+
+    <image class='my-img' src='{{item.MESG_MyUrl}}'></image>
+
+  </view>
+
+</template>

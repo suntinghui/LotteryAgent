@@ -1,0 +1,87 @@
+<import src="../template/fanGroupTemp/index.wxml" />
+<import src="../template/groupReplyTemp/index.wxml" />
+<import src="../template/groupTopicTemp/index.wxml" />
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+          <block wx:for="{{fanList}}" wx:key="index">
+            <view class='fan-box'>
+              <template is="fanGroupTemp" data="{{item}}" />
+            </view>
+          </block>
+
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+
+          <view wx:for="{{commentList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+
+            <view style="text-align:center; margin-bottom:20rpx;">
+
+              <block wx:for="{{listItem.data}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+                <view>
+
+                  <view wx:if="{{index<2}}">
+                    <view wx:if="{{item.isFather}}">
+                      <template is="groupTopicTemp" data="{{item}}" />
+                    </view>
+                    <view wx:else>
+                      <template is="groupReplyTemp" data="{{item}}" />
+                    </view>
+                  </view>
+
+                </view>
+
+              </block>
+
+              <view style="display:{{(listItem.data.length>2?'block':'none')}};">
+
+                <text style="font-size: 13px;color: #666; display:{{listItem.open?'none':'block'}};" bindtap='showAction' data-which="{{listIndex}}">---------------展开全部{{listItem.data.length}}条回复---------------</text>
+
+                <block wx:for="{{listItem.data}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+
+                  <view style="display:{{listItem.open?'block':'none'}};">
+
+                    <view wx:if="{{index>1}}">
+                      <view wx:if="{{item.isFather}}">
+                        <template is="groupTopicTemp" data="{{item}}" />
+                      </view>
+                      <view wx:else>
+                        <template is="groupReplyTemp" data="{{item}}" />
+                      </view>
+                    </view>
+
+                  </view>
+
+                </block>
+
+                <text style="font-size: 13px;color: #666; display:{{listItem.open?'block':'none'}};" bindtap='closeAction' data-which="{{listIndex}}">---------------折叠本条回复---------------</text>
+
+              </view>
+
+            </view>
+
+            <view style='background-color:#efefef; height:30rpx; width:100%;' />
+
+          </view>
+
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+.my-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.my-box {
+  display: flex;
+  flex-direction: column;
+  background-color: #e3e3e3;
+  max-width: 70%;
+  min-width: 300rpx;
+  padding: 20rpx 30rpx;
+  margin: 30rpx 20rpx;
+  border: 1px solid #e3e3e3;
+  border-radius: 15rpx;
+}
+
+.my-content {
+  color: #666;
+  font-size: 13px;
+  text-align: left;
+}
+
+.my-bottom-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 15rpx;
+}
+
+.my-date {
+  color: #666;
+  font-size: 13px;
+}
+
+.my-img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 40rpx;
+}

@@ -1,0 +1,53 @@
+@import "../template/orderListTemp/index.wxss";
+@import "../template/statDetailTemp/index.wxss";
+
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+    
+}
+.weui-tab__content{
+    /* padding-top: 10px;
+    padding-bottom: 10rpx; */
+    
+}
+
+.weui-navbar {
+  background-color: #ffffff;
+}
+
+.totalIncome {
+  color: blue;
+  font-style: bold;
+  font-size: 16px;
+}
+
+.tip {
+  font-size: 14px;
+  color: #666666;
+}
+
+.order-top-box {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.order-box {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
