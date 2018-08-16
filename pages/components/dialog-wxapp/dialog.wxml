@@ -12,8 +12,8 @@
         <slot></slot>
       </view>
       <view class='dialog-wxapp-container__footer' wx:if="{{showFooter}}">
-        <view class='dialog-wxapp-container__footer__cancel' bindtap="close">取消</view>
-        <view class='dialog-wxapp-container__footer__confirm' bindtap='confirm'>确定</view>
+        <view class='dialog-wxapp-container__footer__cancel' bindtap="close" style='display:none;'>取消</view>
+        <view class='dialog-wxapp-container__footer__confirm' bindtap='confirm'>知道了</view>
       </view>
     </view>
   </view>

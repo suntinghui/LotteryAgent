@@ -8,7 +8,7 @@
       <text class='other-content'>{{item.CMMT_Text}}</text>
 
       <view class='other-date-box'>
-        <button bindtap='replyAction' data-uid="{{item.CMMT_Uid}}" class='other-btn' type='warn' size='mini'>回复</button>
+        <button bindtap='showReplyAction' data-uid="{{item.CMMT_Uid}}" class='other-btn' type='warn' size='mini'>回复</button>
 
         <text class='other-date'>{{item.CreateDateFormat}}</text>
       </view>

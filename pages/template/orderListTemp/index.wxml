@@ -3,12 +3,12 @@
   <view class='order-container'>
 
     <view class='order-box1' style='align-items: center;' >
-      <image class='order-head-img' src='/img/head-placehold.png'></image>
+      <image class='order-head-img' src='{{item.BONS_Customer.pic}}'></image>
 
       <view class='order-box2' style='margin-left:20rpx;'>
 
         <view class='order-box1' style='justify-content:space-between'>
-          <text class='order-name'>{{item.name}}</text>
+          <text class='order-name'>{{item.BONS_Customer.nick}}</text>
           <text class='order-from'>{{item.from}}</text>
         </view>
 

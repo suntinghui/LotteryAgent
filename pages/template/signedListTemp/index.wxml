@@ -2,17 +2,15 @@
 
   <view class='signed-info-box'>
 
-    <image class='signed-image' src='/img/head-placehold.png'></image>
+    <image class='signed-image' src='{{item.USER_Pic}}'></image>
 
     <view class='signed-name-box'>
-    <text class='signed-name'>天只为我蓝</text>
+    <text class='signed-name'>{{item.USER_Nickname}}</text>
 
-    <text class='signed-date'>2018年7月11日 13:30</text>
+    <text class='signed-date'>{{item.CreateDate}}</text>
     </view>
 
-    <button class='signed-btn' size='mini' type='default'>解约</button>
-
-    
+    <button class='signed-btn' data-uid='{{item.USER_Uid}}' bindtap='breakOff' size='mini' type='default'>解约</button>
 
   </view>
 

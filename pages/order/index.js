@@ -16,43 +16,11 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
 
-    totalIncome: "900",
-    points: "3000",
+    totalIncome: "0",
+    points: "0",
 
-    orderList: [{
-        orderId: "K23943",
-        name: "快三专业户",
-        from: "北京移动赠券",
-        num: "123456",
-        opendate: "2018-08-21 12:10",
-        type: "北京福彩快三",
-        class: "三等奖",
-        totalmoney: "50",
-        income: "9",
-        payment: "41",
-        datetime: "2018年8月26日22时",
-        resttime: "48小时20分",
-        isComplate: false
-      },
-      {
-        orderId: "K23943",
-        name: "快三专业户",
-        from: "北京移动赠券",
-        num: "123456",
-        opendate: "2018-08-21 12:10",
-        type: "北京福彩快三",
-        class: "三等奖",
-        totalmoney: "50",
-        income: "9",
-        payment: "41",
-        datetime: "2018年8月26日22时",
-        resttime: "48小时20分",
-        isComplate: true
-      }
-    ],
-    statDetail: {
-      ljwtdhq: "333"
-    }
+    orderList: [],
+    summaryData: {}
 
   },
   onLoad: function() {

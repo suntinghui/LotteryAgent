@@ -17,6 +17,10 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
 
+    hiddenmodalput: true,
+    replyContent: "",
+    commentId:"",
+
     fanList: [],
     commentList: []
   },
@@ -182,8 +186,6 @@ Page({
 
   // 回复
   replyAction: function(e) {
-    var uid = e.target.dataset.uid
-
     loading.show("请稍候");
 
     wx.request({
@@ -195,9 +197,9 @@ Page({
       },
       data: {
         CMMT_TGUid: buyerId,
-        CMMT_FthUid: uid,
+        CMMT_FthUid: that.data.commentId,
         CMMT_USUid: buyerId,
-        CMMT_Text: "中国联通",
+        CMMT_Text: that.data.replyContent,
       },
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
@@ -235,6 +237,40 @@ Page({
     var which = event.target.dataset.which
     this.data.commentList[which].open = false;
     this.setData(this.data)
+  },
+
+  replyContent: function(e) {
+    this.data.replyContent = e.detail.value;
+  },
+
+  //点击按钮弹出指定的hiddenmodalput弹出框
+  showReplyAction: function(e) {
+    this.data.commentId = e.target.dataset.uid
+
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput
+    })
+  },
+
+  //取消按钮
+  replyCancel: function() {
+    this.setData({
+      hiddenmodalput: true
+    });
+  },
+
+  //确认
+  replyConfirm: function() {
+    if (this.data.replyContent.length == 0) {
+      loading.showToast("内容不能为空")
+      return
+    }
+
+    this.setData({
+      hiddenmodalput: true
+    })
+
+    this.replyAction()
   }
 
 });

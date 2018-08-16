@@ -18,7 +18,7 @@
 
     <view class='todo-state-box'>
 
-      <button class='todo-btn' bindtap='showDialog' type="{{item.LTLS_State==0?'warn':'default'}}">{{item.LTLS_Lottery.name}}</button>
+      <button class='todo-btn' data-uid='{{item.LTLS_Uid}}' bindtap='showInfo' type="{{item.LTLS_State==0?'warn':'default'}}">{{item.LTLS_Lottery.name}}</button>
 
       <text class='todo-state' style="color:{{item.LTLS_State==0?'red':'blue'}};">{{item.StateDesc}}</text>
 

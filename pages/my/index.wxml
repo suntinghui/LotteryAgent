@@ -5,24 +5,24 @@
 
   <view class='my-info-box'>
 
-    <image class='my-info-head' src='/img/head-placehold.png'></image>
+    <image class='my-info-head' src='{{agentInfo.AGET_PicUrl}}'></image>
 
     <view class='my-info-mid-box'>
-      <text class='my-name'>马大姐</text>
-      <text class='my-info-other'>建特赛外店</text>
-      <text class='my-info-other'>吴小姐</text>
+      <text class='my-name'>{{agentInfo.AGET_NickName}}</text>
+      <text class='my-info-other'>{{agentInfo.AGET_SPName}}</text>
+      <text class='my-info-other'>{{agentInfo.AGET_SecondName}}</text>
     </view>
 
     <view class='my-info-right-box'>
       <text class='my-info-other'>积分：3334</text>
       <template is="wxStar" data="{{wxStar: wxStar}}" />
       <text class='my-info-other'>124天</text>
-      <text class='my-info-other'>18500972879</text>
+      <text class='my-info-other'>{{agentInfo.AGET_SecondMobile}}</text>
     </view>
 
   </view>
 
-  <text class='my-info-other' style='margin-top:20rpx;'>北京建国门外芳草地小区4栋305</text>
+  <text class='my-info-other' style='margin-top:20rpx;'>{{agentInfo.AGET_Address}}</text>
 
   <button class='update-btn' size='mini' type="primary" bindtap='updateInfo'>变更个人信息</button>
 
@@ -38,10 +38,10 @@
   <button class='update-btn' size='mini' type="warn"> 申请解约 </button>
 
   <text class='my-info-other' bindtap='showAgreement' style="text-decoration:underline;margin:0rpx 0rpx 0rpx 20rpx;">《北京福彩彩票站兑换券兑奖委托协议》</text>
-  <text class='my-info-other' style='color:blue;margin:0rpx 0rpx 20rpx auto;'>已签署30人</text>
+  <text class='my-info-other' style='color:blue;margin:0rpx 0rpx 20rpx auto;'>已签署{{fanList.length}}人</text>
 
 
-  <block wx:for="{{signedList}}" wx:key="index">
+  <block wx:for="{{fanList}}" wx:key="index">
     <template is="signedListTemp" data="{{item}}" />
   </block>
 

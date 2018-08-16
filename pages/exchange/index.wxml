@@ -3,13 +3,28 @@
 
 <view class="page">
 
-<dialog data-model="dialogvisible" visible="{{dialogvisible}}" position="center" title="haha" fullscreen="{{fullscreen}}" opacity="0.4" show-close="true" show-footer="true" width="85" close-on-click-modal="true" bindclose="handleClose" bindopen="handleOpen" bindconfirm="handleConfirm">
+  <dialog data-model="dialogvisible" visible="{{dialogvisible}}" position="center" title="" fullscreen="{{fullscreen}}" opacity="0.4" show-close="true" show-footer="true" width="85" close-on-click-modal="true" bindclose="handleClose" bindopen="handleOpen"
+    bindconfirm="handleConfirm">
 
-          <view style='height:20vh;'>
-            <image style='width:100rpx; height:100rpx;' src='../../img/head-placehold.png'></image>
-          </view>
-          
-        </dialog>
+    <view style='display:flex; flex-direction: column;'>
+      <view style='display:flex; flex-direction:row; align-items:center;'>
+        <image style='width:120rpx; height:120rpx;border:1px solid #eee;' src='{{showItem.LTLS_Customer.pic}}'></image>
+        <view style='display:flex; flex-direction: column;margin-left:20rpx;'>
+          <text style='font-size:13px;'>选号：</text>
+          <text style='font-size: 15px; font-weight: bold;letter-spacing: 10rpx;'>{{showItem.LTLS_Coupon.code}}</text>
+        </view>
+      </view>
+
+      <text style='font-size:13px; margin-top:30rpx;'>兑换码：</text>
+      <view style='display:flex; flex-direction: column; margin-bottom:50rpx; text-align:center; '>
+        <text style='font-size: 15px; font-weight: bold;letter-spacing: 5rpx;margin:20rpx auto;'>{{showItem.LTLS_Code}}</text>
+        <canvas style='height:200rpx;margin-left:45rpx;' canvas-id="barcode" />
+      </view>
+
+
+    </view>
+
+  </dialog>
 
 
   <view class="page__bd">

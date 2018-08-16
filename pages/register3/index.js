@@ -56,7 +56,7 @@ Page({
     var that = this;
 
     wx.request({
-      url: app.globalData.HOST+'/api/v1/shops/',
+      url: app.globalData.HOST + '/api/v1/shops/',
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -112,7 +112,7 @@ Page({
     loading.show("请稍候");
 
     wx.request({
-      url: app.globalData.HOST+'/api/v1/sms/ ',
+      url: app.globalData.HOST + '/api/v1/sms/ ',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -184,7 +184,7 @@ Page({
     loading.show("请稍候");
 
     wx.request({
-      url: app.globalData.HOST+'/api/v1/sms/ ',
+      url: app.globalData.HOST + '/api/v1/sms/',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -292,8 +292,10 @@ Page({
 
     loading.show("请稍候");
 
+    var buyerId = wx.getStorageSync(app.globalData.kBuyer);
+
     wx.uploadFile({
-      url: app.globalData.HOST+'/api/v1/buyers/',
+      url: app.globalData.HOST + '/api/v1/buyer/' + buyerId,
       method: "POST",
       header: {
         'content-type': 'multipart/form-data',
@@ -351,7 +353,7 @@ Page({
     var pk_buyer = util.getPK_Buyer();
 
     wx.uploadFile({
-      url: app.globalData.HOST+'/api/v1/buyer/' + pk_buyer + "/",
+      url: app.globalData.HOST + '/api/v1/buyer/' + pk_buyer + "/",
       method: "POST",
       header: {
         'content-type': 'multipart/form-data',

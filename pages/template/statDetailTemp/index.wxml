@@ -1,7 +1,7 @@
 <template name="statDetailTemp">
 
   <view class='stat-box1'>
-    <text class='stat-type'>累计委托兑换券：{{statDetail.ljwtdhq}}张</text>
+    <text class='stat-type'>累计委托兑换券：333张</text>
     <view class='stat-line'></view>
     <text class='stat-rank'>排名56</text>
   </view>

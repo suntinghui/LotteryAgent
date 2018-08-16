@@ -1,6 +1,7 @@
 const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 const dataDic = require('../../utils/dataDic.js')
+var wxbarcode = require('../../utils/codeutil.js');
 
 const app = getApp()
 
@@ -25,7 +26,7 @@ Page({
 
     todoList: [],
     doneList: [],
-    fullscreen:false
+    fullscreen: false
   },
 
   onLoad: function() {
@@ -53,7 +54,7 @@ Page({
   queryList: () => {
     loading.show("请稍候")
     wx.request({
-      url: app.globalData.HOST+'/api/v1/buyer/' + util.getPK_Buyer() + '/coupons/',
+      url: app.globalData.HOST + '/api/v1/buyer/' + util.getPK_Buyer() + '/coupons/',
       method: "GET",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -89,7 +90,7 @@ Page({
 
   },
 
-  
+
   processData: function(data) {
     var todoArray = new Array()
     var doneArray = new Array()
@@ -125,8 +126,21 @@ Page({
     return "未知"
   },
 
-  showDialog:function() {
+  showInfo: function(e) {
+    var uid = e.target.dataset.uid;
+
+    var showItem = {}
+    for (var i = 0; i < this.data.todoList.length; i++) {
+      if (this.data.todoList[i].LTLS_Uid == uid) {
+        showItem = this.data.todoList[i]
+        break
+      }
+    }
+
+    wxbarcode.barcode('barcode', showItem.LTLS_Code, 500, 200);
+
     this.setData({
+      showItem:showItem,
       dialogvisible: true
     })
   }

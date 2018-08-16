@@ -4,7 +4,7 @@
 
     <view class='info-box'>
       <text class='info-text'>笔名：</text>
-      <input class='info-input' type='text' name="pickname" placeholder="请输入笔名" />
+      <input class='info-input' type='text' name="AGET_NickName" placeholder="请输入笔名" value="{{agentInfo.AGET_NickName}}" />
     </view>
     <text class='info-tip'>注册成功后一个月只能修改两次</text>
 
@@ -14,19 +14,19 @@
 
         <view class='info-box'>
           <text class='info-text'>头像：</text>
-          <button class='info-btn' name="headimg" size='mini' bindtap='changeHeadImg'>找开图库</button>
+          <button class='info-btn' name="AGET_PicUrl" size='mini' bindtap='changeHeadImg'>找开图库</button>
         </view>
         <text class='info-tip'>头像每个月可修改一次</text>
 
       </view>
 
-      <image class='info-img' src="{{headImg}}"></image>
+      <image class='info-img' src="{{perImgUrl}}"></image>
 
     </view>
 
     <view class='info-box' style='margin-top:30rpx;'>
       <text class='info-text'>手机号：</text>
-      <input class='info-input' type='number' maxlength="11" name="phonenum" placeholder="请输入手机号" />
+      <input class='info-input' type='number' maxlength="11" name="AGET_Mobile" placeholder="请输入手机号" value="{{agentInfo.AGET_Mobile}}" />
     </view>
 
     <view class='info-box' style='margin-top:20rpx;'>
@@ -37,17 +37,17 @@
 
     <view class='info-box' style='margin-top:30rpx;'>
       <text class='info-text'>居住地址：</text>
-      <input class='info-area' name="pickname" placeholder="请输入居住地址" />
+      <input class='info-area' name="AGET_Address" placeholder="请输入居住地址" value="{{agentInfo.AGET_Address}}" />
     </view>
     <text class='info-tip'>注册成功后一个月只能修改两次</text>
 
     <view class='info-box' style='margin-top:50rpx;'>
       <text class='info-text'>其他联系人：</text>
-      <input class='info-input' type='text' name="pickname" placeholder="请输入姓名" />
+      <input class='info-input' type='text' name="AGET_SecondName" placeholder="请输入姓名" value="{{agentInfo.AGET_SecondName}}" />
     </view>
     <view class='info-box' style='margin-top:20rpx;'>
       <text class='info-text'>联系人手机：</text>
-      <input class='info-input' type='number' maxlength="11" name="phonenum" placeholder="请输入手机号" />
+      <input class='info-input' type='number' maxlength="11" name="AGET_SecondMobile" placeholder="请输入手机号" value="{{agentInfo.AGET_SecondMobile}}" />
     </view>
 
     <view class='info-box' style='margin-top:20rpx;'>
@@ -57,7 +57,7 @@
     </view>
 
     <view class='info-box'>
-      <button class='submit-btn' type='primary'>保存修改</button>
+      <button class='submit-btn' type='primary' formType="submit">保存修改</button>
     </view>
 
   </form>

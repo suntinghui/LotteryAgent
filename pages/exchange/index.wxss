@@ -1,23 +1,21 @@
 @import "../template/exchangeTodoTemp/index.wxss";
 @import "../template/exchangeDoneTemp/index.wxss";
 
-page,
-.page,
-.page__bd{
-    height: 100%;
+page, .page, .page__bd {
+  height: 100%;
 }
-.page__bd{
-    padding-bottom: 0;
-    
+
+.page__bd {
+  padding-bottom: 0;
 }
-.weui-tab__content{
-    /* padding-top: 10px;
+
+.weui-tab__content {
+  /* padding-top: 10px;
     padding-bottom: 10rpx; */
-    
 }
 
 .weui-navbar {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .todo-box {
