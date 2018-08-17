@@ -295,7 +295,7 @@ Page({
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
     wx.uploadFile({
-      url: app.globalData.HOST + '/api/v1/buyer/' + buyerId,
+      url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + "/",
       method: "POST",
       header: {
         'content-type': 'multipart/form-data',

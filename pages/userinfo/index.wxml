@@ -26,13 +26,13 @@
 
     <view class='info-box' style='margin-top:30rpx;'>
       <text class='info-text'>手机号：</text>
-      <input class='info-input' type='number' maxlength="11" name="AGET_Mobile" placeholder="请输入手机号" value="{{agentInfo.AGET_Mobile}}" />
+      <input class='info-input' type='number' maxlength="11" name="AGET_Mobile" placeholder="请输入手机号" value="{{agentInfo.AGET_Mobile}}" bindinput='getMobile' />
     </view>
 
     <view class='info-box' style='margin-top:20rpx;'>
       <text class='info-text'></text>
-      <input class='info-input' style='width:200rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
-      <button class='info-btn' name="headimg" size='mini'>发送</button>
+      <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
+      <button style='width:170rpx;font-size: 13px;' bindtap='sendSMSAction1' disabled='{{canResend1}}'>{{resendText1}}</button>
     </view>
 
     <view class='info-box' style='margin-top:30rpx;'>
@@ -47,13 +47,13 @@
     </view>
     <view class='info-box' style='margin-top:20rpx;'>
       <text class='info-text'>联系人手机：</text>
-      <input class='info-input' type='number' maxlength="11" name="AGET_SecondMobile" placeholder="请输入手机号" value="{{agentInfo.AGET_SecondMobile}}" />
+      <input class='info-input' type='number' maxlength="11" name="AGET_SecondMobile" placeholder="请输入手机号" value="{{agentInfo.AGET_SecondMobile}}" bindinput='getSecondMobile' />
     </view>
 
     <view class='info-box' style='margin-top:20rpx;'>
       <text class='info-text'></text>
-      <input class='info-input' style='width:200rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
-      <button class='info-btn' name="headimg" size='mini'>发送</button>
+      <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
+      <button style='width:170rpx;font-size: 13px;' bindtap='sendSMSAction2' disabled='{{canResend2}}'>{{resendText2}}</button>
     </view>
 
     <view class='info-box'>

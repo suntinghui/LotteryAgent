@@ -47,6 +47,7 @@ Page({
       content: '当前选中' + self.wxStarCont() + '星',
     })
   },
+  
   starChangeCb: function() {
     console.log('选择星之后的回调~');
   },

@@ -19,7 +19,7 @@ Page({
 
     hiddenmodalput: true,
     replyContent: "",
-    commentId:"",
+    commentId: "",
 
     fanList: [],
     commentList: []
@@ -205,6 +205,11 @@ Page({
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
         loading.hide();
+
+        // 发送成功后清除保存的回复内容
+        that.setData({
+          replyContent: ""
+        })
 
         that.queryCommentChats()
 
