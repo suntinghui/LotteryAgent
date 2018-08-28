@@ -271,10 +271,14 @@ Page({
         'Authorization': 'token ' + util.getCookie()
       },
       data: {
+        'AGET_NickName': e.detail.value.AGET_NickName,
         'AGET_Mobile': e.detail.value.AGET_Mobile,
+        'code': e.detail.value.code,
         'AGET_Address': e.detail.value.AGET_Address,
         'AGET_SecondName': e.detail.value.AGET_SecondName,
-        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile
+        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile,
+        'secondCode': e.detail.value.secondCode
+
       },
       success: function(res) {
         console.log("===" + JSON.stringify(res))
@@ -325,10 +329,13 @@ Page({
       filePath: perImgUrl,
       name: 'AGET_Pic',
       formData: {
+        'AGET_NickName': e.detail.value.AGET_NickName,
         'AGET_Mobile': e.detail.value.AGET_Mobile,
+        'code': e.detail.value.code,
         'AGET_Address': e.detail.value.AGET_Address,
         'AGET_SecondName': e.detail.value.AGET_SecondName,
-        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile
+        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile,
+        'secondCode': e.detail.value.secondCode
       },
       success: function(res) {
         console.log(JSON.stringify(res))

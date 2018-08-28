@@ -15,11 +15,13 @@ const getDic = (host) => {
     fail: function(e) {
       console.log("request getDic fail......");
 
+      /*
       wx.showModal({
         title: '提示',
         content: '基础数据获取失败，请重新进入',
         showCancel: false
       })
+      */
 
     },
     complete: function() {
@@ -39,11 +41,13 @@ const getDicWith = type => {
   if (!data) {
     getDic();
 
+    /*
     wx.showModal({
       title: '提示',
       content: '未初始化数据，请重新进入该页面',
       showCancel: false,
     })
+    */
 
   } else {
     var arr = new Array();

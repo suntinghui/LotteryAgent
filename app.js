@@ -2,7 +2,7 @@ const dataDic = require('/utils/dataDic.js')
 
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     this.globalData.userInfo = wx.getStorageSync(this.globalData.kUserInfo);
     this.globalData.cookie = wx.getStorageSync(this.globalData.kCookie);
     this.globalData.buyer = wx.getStorageSync(this.globalData.kBuyer);
@@ -40,15 +40,16 @@ App({
 
 
   globalData: {
-    HOST:"http://192.168.3.24:8000",
+    //HOST:"http://192.168.3.24:8000",
+    HOST: "https://ch.cne-c.com",
 
-    kUserInfo:"kUserInfo",
-    kCookie:"kCookie",
-    kBuyer:"kBuyer",
-    kDataDic:"kDataDic",
+    kUserInfo: "kUserInfo",
+    kCookie: "kCookie",
+    kBuyer: "kBuyer",
+    kDataDic: "kDataDic",
 
     userInfo: null,
-    cookie:null,
-    pk_buyer:null
+    cookie: null,
+    pk_buyer: null
   }
 })

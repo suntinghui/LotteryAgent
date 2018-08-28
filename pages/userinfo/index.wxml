@@ -31,7 +31,7 @@
 
     <view class='info-box' style='margin-top:20rpx;'>
       <text class='info-text'></text>
-      <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
+      <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="code" placeholder="请输入验证码" />
       <button style='width:170rpx;font-size: 13px;' bindtap='sendSMSAction1' disabled='{{canResend1}}'>{{resendText1}}</button>
     </view>
 
@@ -52,7 +52,7 @@
 
     <view class='info-box' style='margin-top:20rpx;'>
       <text class='info-text'></text>
-      <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="verifyCode" placeholder="请输入验证码" />
+      <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="secondCode" placeholder="请输入验证码" />
       <button style='width:170rpx;font-size: 13px;' bindtap='sendSMSAction2' disabled='{{canResend2}}'>{{resendText2}}</button>
     </view>
 
