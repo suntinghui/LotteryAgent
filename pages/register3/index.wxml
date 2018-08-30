@@ -48,7 +48,7 @@
 
     <view class='info-box'>
       <text class='title-text'>居住地址：</text>
-      <input class='content-info input' value='居住地址' type="text" placeholder="请输入居住地址"></input>
+      <input class='content-info input' name="AGET_Address" value='{{AGET_Address}}' type="text" placeholder="请输入居住地址"></input>
     </view>
     <text class='tip-text'>注册成功一个月内可以修改2次</text>
 
@@ -57,7 +57,7 @@
 
       <view class='col-box'>
 
-        <checkbox-group>
+        <checkbox-group name="AGET_WeekMode">
           <label class="checkbox" wx:for="{{week}}" wx:key="item">
             <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
           </label>
@@ -74,14 +74,14 @@
 
     <view class='info-box'>
       <text class='title-text'>其他联系人：</text>
-      <input name="AGET_SecondName" value='其他联系人' class='content-info input' type="text" placeholder="请输入姓名" maxlength="20"></input>
+      <input name="AGET_SecondName" value='' class='content-info input' type="text" placeholder="请输入姓名" maxlength="20"></input>
     </view>
 
     <view class='info-box'>
       <text class='title-text'>手机号：</text>
       <input name="AGET_SecondMobile" value='{{AGET_SecondMobile}}' class='content-info input' type="number" placeholder="联系人手机号" maxlength="11" bindinput="bindKeySecMobileInput" ></input>
     </view>
-    <view class='info-box' style='margin-top:0rpx;'>
+    <view class='info-box' style='margin-top:0rpx; display:none;'>
       <text class='title-text'> </text>
       <view class='info-box'>
         <input class='content-info input' type="number" placeholder="验证码" maxlength="6" style="width:180rpx;"></input>
@@ -89,7 +89,7 @@
       </view>
     </view>
 
-    <button class='nextBtn' type='primary' formType="submit">保存修改</button>
+    <button class='nextBtn' type='primary' formType="submit">确  定</button>
 
   </view>
 

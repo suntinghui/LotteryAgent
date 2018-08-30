@@ -32,8 +32,26 @@ const getPK_Buyer = () => {
   return app.globalData.pk_buyer;
 }
 
+const isNullOrEmpty = str => {
+  return (null == str || str.length == 0)
+}
+
+const array2Str = arr => {
+  console.log(arr)
+  var temp = "";
+  for (var i=0;i<arr.length; i++) {
+    temp += arr[i];
+
+    if (i != arr.length-1)
+      temp += ",";
+  }
+  console.log(temp)
+}
+
 module.exports = {
   formatTime: formatTime,
   getCookie: getCookie,
-  getPK_Buyer: getPK_Buyer
+  getPK_Buyer: getPK_Buyer,
+  isNullOrEmpty:isNullOrEmpty,
+  array2Str: array2Str
 }

@@ -23,6 +23,8 @@ var DEFAULT_REMINTIME = 10;
 
 var app = getApp();
 
+var that = null;
+
 Page({
 
   data: {
@@ -33,14 +35,15 @@ Page({
     canResend2: false,
     resendText2: "发送",
 
-    AGET_Mobile: "18500972879",
-    AGET_SecondMobile: "18500972879",
+    AGET_Mobile: "",
+    AGET_SecondMobile: "",
     week: dataDic.getWeeks(),
     time: dataDic.getDicWith("AGET_WorkMode")
-
   },
 
   onLoad: function() {
+    that = this;
+
     this.queryShopList();
   },
 
@@ -53,8 +56,6 @@ Page({
   },
 
   queryShopList: function() {
-    var that = this;
-
     wx.request({
       url: app.globalData.HOST + '/api/v1/shops/',
       method: "GET",
@@ -98,8 +99,6 @@ Page({
   },
 
   sendSMSAction1: function() {
-    var that = this;
-
     if (AGET_Mobile.length != 11) {
       loading.showToast("请输入11位手机号");
       return;
@@ -151,7 +150,6 @@ Page({
   },
 
   countDown1: function() {
-    var that = this;
     timer1 = setTimeout(function() {
       console.log(remainTime1--);
 
@@ -170,7 +168,6 @@ Page({
   },
 
   sendSMSAction2: function() {
-    var that = this;
 
     if (AGET_SecondMobile.length != 11) {
       loading.showToast("请输入11位手机号");
@@ -222,7 +219,6 @@ Page({
   },
 
   countDown2: function() {
-    var that = this;
     timer2 = setTimeout(function() {
       console.log(remainTime2--);
 
@@ -241,7 +237,6 @@ Page({
   },
 
   chooseCardImg: function(e) {
-    var that = this;
 
     wx.chooseImage({
       count: 1,
@@ -258,7 +253,6 @@ Page({
   },
 
   choosePerImg: function(e) {
-    var that = this;
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -270,14 +264,77 @@ Page({
           perImgUrl: res.tempFilePaths[0]
         })
 
-        that.updateInfo();
+        // that.updateInfo();
       }
     })
   },
 
-  checkInput: () => {
+  checkInput: (e) => {
+    console.log(JSON.stringify(e))
+
+    if (util.isNullOrEmpty(cardImgUrl)) {
+      loading.showToast("请选择身份证照片");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(perImgUrl)) {
+      loading.showToast("请选择申请人照片");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(e.detail.value.AGET_Mobile)) {
+      loading.showToast("请输入手机号");
+      return false;
+    }
+
+    if (e.detail.value.AGET_Mobile.length != 11) {
+      loading.showToast("手机号必须11位");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(e.detail.value.code)) {
+      loading.showToast("请输入验证码");
+      return false;
+    }
+
     if (AGET_SPUid == null || AGET_SPUid.length == 0) {
       loading.showToast("请选择注册门店");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(e.detail.value.AGET_Address)) {
+      loading.showToast("请输入居住地址");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(e.detail.value.AGET_WeekMode)) {
+      loading.showToast("请选择工作日");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(e.detail.value.AGET_WorkMode)) {
+      loading.showToast("请选择工作时段");
+      return false;
+    }
+
+
+    if (util.isNullOrEmpty(e.detail.value.AGET_SecondName)) {
+      loading.showToast("请输入其他联系人");
+      return false;
+    }
+
+    if (util.isNullOrEmpty(e.detail.value.AGET_SecondMobile)) {
+      loading.showToast("请输入联系人手机号");
+      return false;
+    }
+
+    if (e.detail.value.AGET_SecondMobile.length != 11) {
+      loading.showToast("手机号必须11位");
+      return false;
+    }
+
+    if (e.detail.value.AGET_Mobile == e.detail.value.AGET_SecondMobile) {
+      loading.showToast("两个手机号不能相同")
       return false;
     }
 
@@ -285,17 +342,15 @@ Page({
   },
 
   formSubmit: function(e) {
-    if (!this.checkInput())
+    if (!this.checkInput(e))
       return;
-
-    var that = this;
 
     loading.show("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
     wx.uploadFile({
-      url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + "/",
+      url: app.globalData.HOST + '/api/v1/buyers/',
       method: "POST",
       header: {
         'content-type': 'multipart/form-data',
@@ -308,6 +363,7 @@ Page({
         'code': e.detail.value.code,
         'AGET_Address': e.detail.value.AGET_Address,
         'AGET_SPUid': AGET_SPUid,
+        'AGET_WeekMode': util.array2Str(e.detail.value.AGET_WeekMode),
         'AGET_WorkMode': e.detail.value.AGET_WorkMode,
         'AGET_SecondName': e.detail.value.AGET_SecondName,
         'AGET_SecondMobile': e.detail.value.AGET_SecondMobile
@@ -370,7 +426,11 @@ Page({
             content: '注册成功',
             showCancel: false,
             success: function() {
-              console.log("registor....")
+              console.log("registe done....")
+
+              wx.switchTab({
+                url: '/pages/exchange/index',
+              })
             }
           });
 

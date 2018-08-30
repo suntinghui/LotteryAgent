@@ -71,8 +71,7 @@ const getWeeks = () => {
     },
     {
       name: '2',
-      value: '周二',
-      checked: 'true'
+      value: '周二'
     },
     {
       name: '3',

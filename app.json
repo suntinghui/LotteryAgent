@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/register3/index",
     "pages/start/index",
     "pages/exchange/index",
     "pages/customer/index",
@@ -11,7 +11,7 @@
     "pages/userinfo/index",
     "pages/register1/index",
     "pages/register2/index",
-    "pages/register3/index",
+    
     "pages/register4/index",
     "pages/fanchat/index"
     
@@ -51,12 +51,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "买伴",
     "navigationBarTextStyle": "black"
-  },
-  "networkTimeout": {
-    "request": 10000,
-    "connectSocket": 10000,
-    "uploadFile": 10000,
-    "downloadFile": 10000
   },
   "debug": true
 }
