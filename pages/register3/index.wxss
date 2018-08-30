@@ -61,7 +61,9 @@
 
 .nextBtn {
   font-size: 15px;
-  margin: 40rpx;
-  width: 400rpx;
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  margin-left: 40rpx;
+  width: 670rpx;
   align-self: center;
 }

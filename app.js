@@ -36,8 +36,8 @@ App({
 
 
   globalData: {
-    HOST:"http://192.168.3.24:8000",
-    //HOST: "https://ch.cne-c.com",
+    //HOST:"http://192.168.3.24:8000",
+    HOST: "https://ch.cne-c.com",
     //HOST:"http://172.16.11.1:8000",
 
     kUserInfo: "kUserInfo",
