@@ -1,6 +1,5 @@
 const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
-const dataDic = require('../../utils/dataDic.js')
 
 var cardImgUrl = null;
 var perImgUrl = null;
@@ -37,25 +36,30 @@ Page({
 
     AGET_Mobile: "",
     AGET_SecondMobile: "",
-    week: dataDic.getWeeks(),
-    time: dataDic.getDicWith("AGET_WorkMode")
+    week: [],
+    time: []
   },
 
-  onLoad: function() {
+  onLoad: function () {
     that = this;
-
-    this.queryShopList();
   },
 
-  bindKeyMobileInput: function(e) {
+  onShow: function () {
+    this.requestWeekMode()
+    this.requestWorkMode()
+
+    this.queryShopList()
+  },
+
+  bindKeyMobileInput: function (e) {
     AGET_Mobile = e.detail.value;
   },
 
-  bindKeySecMobileInput: function(e) {
+  bindKeySecMobileInput: function (e) {
     AGET_SecondMobile = e.detail.value;
   },
 
-  queryShopList: function() {
+  queryShopList: function () {
     wx.request({
       url: app.globalData.HOST + '/api/v1/shops/',
       method: "GET",
@@ -69,7 +73,7 @@ Page({
           SHOP_Uid: "",
           SHOP_Title: "请选择"
         }];
-        res.data.forEach(function(value, index, array) {
+        res.data.forEach(function (value, index, array) {
           shopList.push(value);
         })
 
@@ -88,7 +92,7 @@ Page({
     })
   },
 
-  bindShopChange: function(e) {
+  bindShopChange: function (e) {
     shopIndex = e.detail.value;
 
     this.setData({
@@ -98,7 +102,63 @@ Page({
     AGET_SPUid = shopList[shopIndex].SHOP_Uid
   },
 
-  sendSMSAction1: function() {
+  requestWorkMode: function (e) {
+    wx.request({
+      url: app.globalData.HOST + '/api/v1/dictionaries/?field=AGET_WorkMode',
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.statusCode + "--" + JSON.stringify(res.data));
+
+        that.setData({
+          time: res.data
+        })
+
+      },
+      fail: function (e) {
+        console.log("request dictionaries fail......");
+
+        wx.showModal({
+          title: '提示',
+          content: '基础数据获取失败，请重试',
+          showCancel: false
+        })
+
+      }
+    })
+  },
+
+  requestWeekMode: function (e) {
+    wx.request({
+      url: app.globalData.HOST + '/api/v1/dictionaries/?field=AGET_WeekMode',
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.statusCode + "--" + JSON.stringify(res.data));
+
+        that.setData({
+          week: res.data
+        })
+
+      },
+      fail: function (e) {
+        console.log("request dictionaries fail......");
+
+        wx.showModal({
+          title: '提示',
+          content: '基础数据获取失败，请重试',
+          showCancel: false
+        })
+
+      }
+    })
+  },
+
+  sendSMSAction1: function () {
     if (AGET_Mobile.length != 11) {
       loading.showToast("请输入11位手机号");
       return;
@@ -149,8 +209,8 @@ Page({
 
   },
 
-  countDown1: function() {
-    timer1 = setTimeout(function() {
+  countDown1: function () {
+    timer1 = setTimeout(function () {
       console.log(remainTime1--);
 
       that.setData({
@@ -167,7 +227,7 @@ Page({
     }, 1000)
   },
 
-  sendSMSAction2: function() {
+  sendSMSAction2: function () {
 
     if (AGET_SecondMobile.length != 11) {
       loading.showToast("请输入11位手机号");
@@ -218,8 +278,8 @@ Page({
     })
   },
 
-  countDown2: function() {
-    timer2 = setTimeout(function() {
+  countDown2: function () {
+    timer2 = setTimeout(function () {
       console.log(remainTime2--);
 
       that.setData({
@@ -236,13 +296,13 @@ Page({
     }, 1000)
   },
 
-  chooseCardImg: function(e) {
+  chooseCardImg: function (e) {
 
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success: function(res) {
+      success: function (res) {
         cardImgUrl = res.tempFilePaths[0];
 
         that.setData({
@@ -252,12 +312,12 @@ Page({
     })
   },
 
-  choosePerImg: function(e) {
+  choosePerImg: function (e) {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success: function(res) {
+      success: function (res) {
         perImgUrl = res.tempFilePaths[0];
 
         that.setData({
@@ -341,7 +401,7 @@ Page({
     return true;
   },
 
-  formSubmit: function(e) {
+  formSubmit: function (e) {
     if (!this.checkInput(e))
       return;
 
@@ -368,7 +428,7 @@ Page({
         'AGET_SecondName': e.detail.value.AGET_SecondName,
         'AGET_SecondMobile': e.detail.value.AGET_SecondMobile
       },
-      success: function(res) {
+      success: function (res) {
         console.log(JSON.stringify(res))
 
         // 上传成功，继续上传申请人照片
@@ -388,7 +448,7 @@ Page({
           })
         }
       },
-      fail: function(e) {
+      fail: function (e) {
         loading.hide();
 
         console.log(JSON.stringify(e))
@@ -403,7 +463,7 @@ Page({
 
   },
 
-  updateInfo: function() {
+  updateInfo: function () {
     loading.show("请稍候");
 
     var pk_buyer = util.getPK_Buyer();
@@ -417,7 +477,7 @@ Page({
       },
       filePath: perImgUrl,
       name: 'AGET_Pic',
-      success: function(res) {
+      success: function (res) {
         console.log(JSON.stringify(res))
 
         if (res.statusCode == "200" || res.statusCode == '201') {
@@ -425,7 +485,7 @@ Page({
             title: '提示',
             content: '注册成功',
             showCancel: false,
-            success: function() {
+            success: function () {
               console.log("registe done....")
 
               wx.switchTab({
@@ -444,7 +504,7 @@ Page({
           })
         }
       },
-      fail: function(e) {
+      fail: function (e) {
         loading.hide();
 
         console.log(JSON.stringify(e))
@@ -455,7 +515,7 @@ Page({
           showCancel: false
         })
       },
-      complete: function(e) {
+      complete: function (e) {
         loading.hide();
       }
     })

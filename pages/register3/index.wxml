@@ -59,13 +59,13 @@
 
         <checkbox-group name="AGET_WeekMode">
           <label class="checkbox" wx:for="{{week}}" wx:key="item">
-            <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+            <checkbox value="{{item.DICT_Value}}" checked="{{item.checked}}" />{{item.DICT_Name}}
           </label>
         </checkbox-group>
 
         <radio-group name="AGET_WorkMode" style="margin-top:20rpx;">
           <label class="radio" wx:for="{{time}}" wx:key="item">
-            <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+            <radio value="{{item.DICT_Value}}" checked="{{item.checked}}" />{{item.DICT_Name}}
           </label>
         </radio-group>
       </view>

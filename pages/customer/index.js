@@ -1,6 +1,5 @@
 const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
-const dataDic = require('../../utils/dataDic.js')
 
 var app = getApp()
 

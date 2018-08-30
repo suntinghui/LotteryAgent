@@ -1,4 +1,3 @@
-const dataDic = require('/utils/dataDic.js')
 
 //app.js
 App({
@@ -33,9 +32,6 @@ App({
         }
       }
     })
-
-    // 每次进入都重新获取一下数据字典，以保证当次启动为最新数据 
-    dataDic.getDic(this.globalData.HOST);
   },
 
 
@@ -47,7 +43,6 @@ App({
     kUserInfo: "kUserInfo",
     kCookie: "kCookie",
     kBuyer: "kBuyer",
-    kDataDic: "kDataDic",
 
     userInfo: null,
     cookie: null,

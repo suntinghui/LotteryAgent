@@ -1,6 +1,5 @@
 const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
-const dataDic = require('../../utils/dataDic.js')
 var wxbarcode = require('../../utils/codeutil.js');
 
 const app = getApp()
@@ -39,9 +38,14 @@ Page({
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
       }
+
     });
 
     this.queryList();
+  },
+
+  onShow:function(e) {
+    requestLTLS()
   },
 
   tabClick: function(e) {
@@ -115,15 +119,39 @@ Page({
   // 从数据字典中查询状态描述信息
   getStateDesc: function(key) {
     if (LTLS_StateArr.length == 0)
-      LTLS_StateArr = dataDic.getDicWith("LTLS_State")
+      requestLTLS()
 
     for (var i = 0; i < LTLS_StateArr.length; i++) {
-      if (LTLS_StateArr[i].name == key) {
-        return LTLS_StateArr[i].value
+      if (LTLS_StateArr[i].DICT_Value == key) {
+        return LTLS_StateArr[i].DICT_Name
       }
     }
 
     return "未知"
+  },
+
+  requestLTLS: function (e) {
+    wx.request({
+      url: app.globalData.HOST + '/api/v1/dictionaries/?field=LTLS_State',
+      method: "GET",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res.statusCode + "--" + JSON.stringify(res.data));
+        LTLS_StateArr = res.data;
+      },
+      fail: function (e) {
+        console.log("request dictionaries fail......");
+
+        wx.showModal({
+          title: '提示',
+          content: '基础数据获取失败，请重试',
+          showCancel: false
+        })
+
+      }
+    })
   },
 
   showInfo: function(e) {

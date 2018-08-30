@@ -37,7 +37,6 @@ const isNullOrEmpty = str => {
 }
 
 const array2Str = arr => {
-  console.log(arr)
   var temp = "";
   for (var i=0;i<arr.length; i++) {
     temp += arr[i];
@@ -45,7 +44,7 @@ const array2Str = arr => {
     if (i != arr.length-1)
       temp += ",";
   }
-  console.log(temp)
+  return temp;
 }
 
 module.exports = {
