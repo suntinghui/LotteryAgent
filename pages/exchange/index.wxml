@@ -29,7 +29,7 @@
 
   <view class="page__bd">
     <view class="weui-tab">
-    
+
       <view class="weui-navbar">
         <block wx:for="{{tabs}}" wx:key="*this">
           <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
@@ -44,6 +44,10 @@
         <!-- 待办 -->
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
 
+          <view wx:if="{{todoList.length==0}}">
+            <image class='nodata' bindtap='queryList' src='/img/nodata.png'></image>
+          </view>
+
           <block wx:for="{{todoList}}" wx:key="index">
             <view class='todo-box'>
               <template is="exchangeTodoTemp" data="{{item}}" />
@@ -54,6 +58,10 @@
 
         <!-- 已完成 -->
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <view wx:if="{{doneList.length==0}}">
+            <image class='nodata' bindtap='queryList' src='/img/nodata.png'></image>
+          </view>
 
           <block wx:for="{{doneList}}" wx:key="index">
             <view class='done-box'>

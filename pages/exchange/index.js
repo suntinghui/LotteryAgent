@@ -118,7 +118,7 @@ Page({
   // 从数据字典中查询状态描述信息
   getStateDesc: function(key) {
     if (LTLS_StateArr.length == 0)
-      requestLTLS()
+      this.requestLTLS()
 
     for (var i = 0; i < LTLS_StateArr.length; i++) {
       if (LTLS_StateArr[i].DICT_Value == key) {
@@ -149,7 +149,7 @@ Page({
           showCancel: false,
           success: function (res) {
             if (res.confirm) {
-              requestLTLS()
+              that.requestLTLS()
             } 
           }
         })

@@ -31,3 +31,10 @@ page,
   margin-right: 20rpx;
   
 }
+
+.nodata {
+  width: 300rpx;
+  height: 300rpx;
+  margin-left: 225rpx;
+  margin-top: 100rpx;
+}

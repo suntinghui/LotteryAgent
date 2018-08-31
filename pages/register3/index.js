@@ -125,7 +125,7 @@ Page({
           showCancel: false,
           success: function (res) {
             if (res.confirm) {
-              requestWorkMode()
+              that.requestWorkMode()
             }
           }
         })
@@ -158,7 +158,7 @@ Page({
           showCancel: false,
           success: function (res) {
             if (res.confirm) {
-              requestWeekMode()
+              that.requestWeekMode()
             }
           }
         })

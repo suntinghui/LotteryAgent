@@ -17,11 +17,17 @@
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
 
+          <view wx:if="{{fanList.length==0}}">
+            <image class='nodata' bindtap='queryFans' src='/img/nodata.png'></image>
+          </view>
+
           <block wx:for="{{fanList}}" wx:key="index">
             <view class='fan-box'>
               <template is="fanGroupTemp" data="{{item}}" />
             </view>
           </block>
+
+
 
         </view>
 
@@ -31,6 +37,10 @@
             <input bindinput="replyContent" type='text' maxlength='140' placeholder="最多140字" auto-focus />
           </modal>
 
+
+          <view wx:if="{{commentList.length==0}}">
+            <image class='nodata' bindtap='queryCommentChats' src='/img/nodata.png'></image>
+          </view>
 
           <view wx:for="{{commentList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
 
