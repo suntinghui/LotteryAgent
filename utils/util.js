@@ -38,19 +38,44 @@ const isNullOrEmpty = str => {
 
 const array2Str = arr => {
   var temp = "";
-  for (var i=0;i<arr.length; i++) {
+  for (var i = 0; i < arr.length; i++) {
     temp += arr[i];
 
-    if (i != arr.length-1)
+    if (i != arr.length - 1)
       temp += ",";
   }
   return temp;
+}
+
+// view
+function showLoading(msg) {
+  wx.showLoading({
+    title: msg,
+  })
+}
+
+function hideLoading() {
+  wx.hideLoading();
+}
+
+function showToast(msg) {
+  if (!msg)
+    return;
+
+  wx.showToast({
+    title: msg,
+    icon: "none"
+  })
 }
 
 module.exports = {
   formatTime: formatTime,
   getCookie: getCookie,
   getPK_Buyer: getPK_Buyer,
-  isNullOrEmpty:isNullOrEmpty,
-  array2Str: array2Str
+  isNullOrEmpty: isNullOrEmpty,
+  array2Str: array2Str,
+
+  showLoading: showLoading,
+  hideLoading: hideLoading,
+  showToast: showToast
 }

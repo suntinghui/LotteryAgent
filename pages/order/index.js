@@ -1,5 +1,4 @@
 var wxCharts = require('../../utils/wxcharts-min.js');
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 
 var app = getApp()
@@ -73,7 +72,7 @@ Page({
   },
 
   requestOrderList:function() {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
@@ -87,7 +86,7 @@ Page({
       success: function (res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.setData({
           orderList: res.data
@@ -97,7 +96,7 @@ Page({
       fail: function (e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -111,7 +110,7 @@ Page({
   },
 
   requestSummaryList: function () {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
@@ -125,7 +124,7 @@ Page({
       success: function (res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.setData({
           orderList: res.data
@@ -135,7 +134,7 @@ Page({
       fail: function (e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',

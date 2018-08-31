@@ -1,4 +1,3 @@
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 var wxbarcode = require('../../utils/codeutil.js');
 
@@ -56,7 +55,7 @@ Page({
   },
 
   queryList: () => {
-    loading.show("请稍候")
+    util.showLoading("请稍候")
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + util.getPK_Buyer() + '/coupons/',
       method: "GET",
@@ -65,7 +64,7 @@ Page({
         'Authorization': 'token ' + util.getCookie()
       },
       success: (res) => {
-        loading.hide();
+        util.hideLoading();
 
         console.log("查询兑换券：" + JSON.stringify(res.data))
 
@@ -88,7 +87,7 @@ Page({
           showCancel: false
         })
 
-        loading.hide();
+        util.hideLoading();
       }
     })
 
@@ -146,8 +145,13 @@ Page({
 
         wx.showModal({
           title: '提示',
-          content: '基础数据获取失败，请重试',
-          showCancel: false
+          content: '数据获取失败，是否重试',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              requestLTLS()
+            } 
+          }
         })
 
       }

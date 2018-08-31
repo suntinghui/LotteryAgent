@@ -1,4 +1,3 @@
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 
 var cardImgUrl = null;
@@ -87,7 +86,7 @@ Page({
         })
       },
       fail: (e) => {
-        loading.showToast(e.data)
+        util.showToast(e.data)
       }
     })
   },
@@ -122,8 +121,13 @@ Page({
 
         wx.showModal({
           title: '提示',
-          content: '基础数据获取失败，请重试',
-          showCancel: false
+          content: '数据获取失败，是否重试',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              requestWorkMode()
+            }
+          }
         })
 
       }
@@ -150,8 +154,13 @@ Page({
 
         wx.showModal({
           title: '提示',
-          content: '基础数据获取失败，请重试',
-          showCancel: false
+          content: '数据获取失败，是否重试',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              requestWeekMode()
+            }
+          }
         })
 
       }
@@ -160,7 +169,7 @@ Page({
 
   sendSMSAction1: function () {
     if (AGET_Mobile.length != 11) {
-      loading.showToast("请输入11位手机号");
+      util.showToast("请输入11位手机号");
       return;
     }
 
@@ -168,7 +177,7 @@ Page({
       canResend1: true
     })
 
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/sms/ ',
@@ -181,7 +190,7 @@ Page({
         phone: AGET_Mobile
       },
       success: (res) => {
-        loading.hide();
+        util.hideLoading();
 
         remainTime1 = DEFAULT_REMINTIME;
         that.countDown1();
@@ -203,7 +212,7 @@ Page({
 
       },
       complete: (e) => {
-        loading.hide();
+        util.hideLoading();
       }
     })
 
@@ -230,7 +239,7 @@ Page({
   sendSMSAction2: function () {
 
     if (AGET_SecondMobile.length != 11) {
-      loading.showToast("请输入11位手机号");
+      util.showToast("请输入11位手机号");
       return;
     }
 
@@ -238,7 +247,7 @@ Page({
       canResend2: true
     })
 
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/sms/',
@@ -251,7 +260,7 @@ Page({
         phone: AGET_SecondMobile
       },
       success: (res) => {
-        loading.hide();
+        util.hideLoading();
 
         remainTime2 = DEFAULT_REMINTIME;
         that.countDown2();
@@ -273,7 +282,7 @@ Page({
 
       },
       complete: (e) => {
-        loading.hide();
+        util.hideLoading();
       }
     })
   },
@@ -333,68 +342,68 @@ Page({
     console.log(JSON.stringify(e))
 
     if (util.isNullOrEmpty(cardImgUrl)) {
-      loading.showToast("请选择身份证照片");
+      util.showToast("请选择身份证照片");
       return false;
     }
 
     if (util.isNullOrEmpty(perImgUrl)) {
-      loading.showToast("请选择申请人照片");
+      util.showToast("请选择申请人照片");
       return false;
     }
 
     if (util.isNullOrEmpty(e.detail.value.AGET_Mobile)) {
-      loading.showToast("请输入手机号");
+      util.showToast("请输入手机号");
       return false;
     }
 
     if (e.detail.value.AGET_Mobile.length != 11) {
-      loading.showToast("手机号必须11位");
+      util.showToast("手机号必须11位");
       return false;
     }
 
     if (util.isNullOrEmpty(e.detail.value.code)) {
-      loading.showToast("请输入验证码");
+      util.showToast("请输入验证码");
       return false;
     }
 
     if (AGET_SPUid == null || AGET_SPUid.length == 0) {
-      loading.showToast("请选择注册门店");
+      util.showToast("请选择注册门店");
       return false;
     }
 
     if (util.isNullOrEmpty(e.detail.value.AGET_Address)) {
-      loading.showToast("请输入居住地址");
+      util.showToast("请输入居住地址");
       return false;
     }
 
     if (util.isNullOrEmpty(e.detail.value.AGET_WeekMode)) {
-      loading.showToast("请选择工作日");
+      util.showToast("请选择工作日");
       return false;
     }
 
     if (util.isNullOrEmpty(e.detail.value.AGET_WorkMode)) {
-      loading.showToast("请选择工作时段");
+      util.showToast("请选择工作时段");
       return false;
     }
 
 
     if (util.isNullOrEmpty(e.detail.value.AGET_SecondName)) {
-      loading.showToast("请输入其他联系人");
+      util.showToast("请输入其他联系人");
       return false;
     }
 
     if (util.isNullOrEmpty(e.detail.value.AGET_SecondMobile)) {
-      loading.showToast("请输入联系人手机号");
+      util.showToast("请输入联系人手机号");
       return false;
     }
 
     if (e.detail.value.AGET_SecondMobile.length != 11) {
-      loading.showToast("手机号必须11位");
+      util.showToast("手机号必须11位");
       return false;
     }
 
     if (e.detail.value.AGET_Mobile == e.detail.value.AGET_SecondMobile) {
-      loading.showToast("两个手机号不能相同")
+      util.showToast("两个手机号不能相同")
       return false;
     }
 
@@ -405,7 +414,7 @@ Page({
     if (!this.checkInput(e))
       return;
 
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
@@ -439,7 +448,7 @@ Page({
           that.updateInfo();
 
         } else {
-          loading.hide();
+          util.hideLoading();
 
           wx.showModal({
             title: '提示',
@@ -449,7 +458,7 @@ Page({
         }
       },
       fail: function (e) {
-        loading.hide();
+        util.hideLoading();
 
         console.log(JSON.stringify(e))
 
@@ -464,7 +473,7 @@ Page({
   },
 
   updateInfo: function () {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var pk_buyer = util.getPK_Buyer();
 
@@ -495,7 +504,7 @@ Page({
           });
 
         } else {
-          loading.hide();
+          util.hideLoading();
 
           wx.showModal({
             title: '提示',
@@ -505,7 +514,7 @@ Page({
         }
       },
       fail: function (e) {
-        loading.hide();
+        util.hideLoading();
 
         console.log(JSON.stringify(e))
 
@@ -516,7 +525,7 @@ Page({
         })
       },
       complete: function (e) {
-        loading.hide();
+        util.hideLoading();
       }
     })
   },

@@ -1,4 +1,3 @@
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 
 var app = getApp()
@@ -59,7 +58,7 @@ Page({
 
   // 查询买伴粉丝列表  
   queryFans: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
@@ -73,7 +72,7 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.setData({
           fanList: res.data
@@ -83,7 +82,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -116,7 +115,7 @@ Page({
 
   // 查询群聊内容
   queryCommentChats: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + '/comments/',
@@ -128,14 +127,14 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.processComments(res.data)
       },
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -185,7 +184,7 @@ Page({
 
   // 回复
   replyAction: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + '/comments/',
@@ -203,7 +202,7 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         // 发送成功后清除保存的回复内容
         that.setData({
@@ -216,7 +215,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -266,7 +265,7 @@ Page({
   //确认
   replyConfirm: function() {
     if (this.data.replyContent.length == 0) {
-      loading.showToast("内容不能为空")
+      util.showToast("内容不能为空")
       return
     }
 

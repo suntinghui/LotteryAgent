@@ -1,5 +1,3 @@
-const loading = require('../../utils/loading.js')
-
 var app = getApp();
 
 Page({
@@ -83,7 +81,7 @@ Page({
   },
 
   login: function(e) {
-    loading.show("加载中")
+    util.showLoading("加载中")
 
     var that = this;
 
@@ -108,7 +106,7 @@ Page({
             success: function(res) {
               console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-              loading.hide();
+              util.hideLoading();
 
               if (res.data.error) {
                 wx.showModal({
@@ -133,7 +131,7 @@ Page({
             fail: function(e) {
               console.log("request login fail......");
 
-              loading.hide();
+              util.hideLoading();
 
               wx.showModal({
                 title: '提示',
@@ -164,7 +162,7 @@ Page({
       },
       fail: function() {
         console.log("request code fail......");
-        loading.hide();
+        util.hideLoading();
       },
       complete: function() {
         console.log("request code complete......");

@@ -1,5 +1,4 @@
 var wxStar = require('../template/ratingStarTemp/index.js');
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 
 var app = getApp()
@@ -42,7 +41,7 @@ Page({
   sendSMSAction1: function() {
 
     if (this.data.AGET_Mobile.length != 11) {
-      loading.showToast("请输入11位手机号");
+      util.showToast("请输入11位手机号");
       return;
     }
 
@@ -50,7 +49,7 @@ Page({
       canResend1: true
     })
 
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/sms/ ',
@@ -63,7 +62,7 @@ Page({
         phone: that.data.AGET_Mobile
       },
       success: (res) => {
-        loading.hide();
+        util.hideLoading();
 
         remainTime1 = DEFAULT_REMINTIME;
         that.countDown1();
@@ -85,7 +84,7 @@ Page({
 
       },
       complete: (e) => {
-        loading.hide();
+        util.hideLoading();
       }
     })
 
@@ -112,7 +111,7 @@ Page({
   sendSMSAction2: function() {
 
     if (this.data.AGET_SecondMobile.length != 11) {
-      loading.showToast("请输入11位手机号");
+      util.showToast("请输入11位手机号");
       return;
     }
 
@@ -120,7 +119,7 @@ Page({
       canResend2: true
     })
 
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/sms/',
@@ -133,7 +132,7 @@ Page({
         phone: that.data.AGET_SecondMobile
       },
       success: (res) => {
-        loading.hide();
+        util.hideLoading();
 
         remainTime2 = DEFAULT_REMINTIME;
         that.countDown2();
@@ -155,7 +154,7 @@ Page({
 
       },
       complete: (e) => {
-        loading.hide();
+        util.hideLoading();
       }
     })
   },
@@ -203,7 +202,7 @@ Page({
 
   // 查询买伴个人信息
   queryInfo: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + "/",
@@ -215,7 +214,7 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.data.AGET_Mobile = res.data.AGET_Mobile
         that.data.AGET_SecondMobile = res.data.AGET_SecondMobile
@@ -229,7 +228,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -260,7 +259,7 @@ Page({
   },
 
   updateInfo: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + "/",
@@ -287,10 +286,10 @@ Page({
           console.log(res.data.AGET_Uid);
           wx.setStorageSync(app.globalData.kBuyer, res.data.AGET_Uid);
 
-          loading.showToast("修改成功")
+          util.showToast("修改成功")
 
         } else {
-          loading.hide();
+          util.hideLoading();
 
           wx.showModal({
             title: '提示',
@@ -301,7 +300,7 @@ Page({
 
       },
       fail: function(e) {
-        loading.hide();
+        util.hideLoading();
 
         console.log(JSON.stringify(e))
 
@@ -316,7 +315,7 @@ Page({
   },
 
   updateInfoWithImg: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.uploadFile({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + "/",
@@ -344,10 +343,10 @@ Page({
           console.log((JSON.parse(res.data)).AGET_Uid);
           wx.setStorageSync(app.globalData.kBuyer, (JSON.parse(res.data)).AGET_Uid);
 
-          loading.showToast("修改成功")
+          util.showToast("修改成功")
 
         } else {
-          loading.hide();
+          util.hideLoading();
 
           wx.showModal({
             title: '提示',
@@ -357,7 +356,7 @@ Page({
         }
       },
       fail: function(e) {
-        loading.hide();
+        util.hideLoading();
 
         console.log(JSON.stringify(e))
 

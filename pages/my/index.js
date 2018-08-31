@@ -1,5 +1,4 @@
 var wxStar = require('../template/ratingStarTemp/index.js');
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 
 var app = getApp()
@@ -53,7 +52,7 @@ Page({
 
   // 查询买伴个人信息
   queryInfo: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
@@ -67,7 +66,7 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.setData({
           agentInfo: res.data
@@ -77,7 +76,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -93,7 +92,7 @@ Page({
 
   // 查询买伴粉丝列表  
   queryFans: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     var buyerId = wx.getStorageSync(app.globalData.kBuyer);
 
@@ -107,7 +106,7 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         that.setData({
           fanList: res.data
@@ -117,7 +116,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -141,7 +140,7 @@ Page({
       confirmText: "解约",
       success: function(res) {
         if (res.confirm) {
-          loading.showToast("已解约")
+          util.showToast("已解约")
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

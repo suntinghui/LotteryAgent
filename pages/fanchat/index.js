@@ -1,4 +1,3 @@
-const loading = require('../../utils/loading.js')
 const util = require('../../utils/util.js')
 
 var app = getApp();
@@ -37,7 +36,7 @@ Page({
   sendMsg: function() {
     var newMsg = this.data.newMsg;
     if (newMsg.length == 0) {
-      loading.showToast("内容不能为空")
+      util.showToast("内容不能为空")
       return
     }
 
@@ -45,7 +44,7 @@ Page({
   },
 
   sendChat: function(e) {
-    loading.show("正在发送");
+    util.showLoading("正在发送");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + '/customer/' + that.data.fanItem.USER_Uid + '/chats/',
@@ -67,7 +66,7 @@ Page({
           newMsg: ""
         })
 
-        loading.hide();
+        util.hideLoading();
 
         that.queryChats();
 
@@ -75,7 +74,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
@@ -89,7 +88,7 @@ Page({
   },
 
   queryChats: function(e) {
-    loading.show("请稍候");
+    util.showLoading("请稍候");
 
     wx.request({
       url: app.globalData.HOST + '/api/v1/buyer/' + buyerId + '/customer/' + that.data.fanItem.USER_Uid + '/chats/',
@@ -101,7 +100,7 @@ Page({
       success: function(res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
-        loading.hide();
+        util.hideLoading();
 
         var tempList = res.data
         for (var i = 0; i < tempList.length; i++) {
@@ -119,7 +118,7 @@ Page({
       fail: function(e) {
         console.log("request login fail......");
 
-        loading.hide();
+        util.hideLoading();
 
         wx.showModal({
           title: '提示',
