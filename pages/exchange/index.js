@@ -44,7 +44,7 @@ Page({
   },
 
   onShow:function(e) {
-    requestLTLS()
+    this.requestLTLS()
   },
 
   tabClick: function(e) {

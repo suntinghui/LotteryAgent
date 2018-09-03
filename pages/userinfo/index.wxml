@@ -42,15 +42,15 @@
     <text class='info-tip'>注册成功后一个月只能修改两次</text>
 
     <view class='info-box' style='margin-top:50rpx;'>
-      <text class='info-text'>其他联系人：</text>
+      <text class='info-text'>联系人：</text>
       <input class='info-input' type='text' name="AGET_SecondName" placeholder="请输入姓名" value="{{agentInfo.AGET_SecondName}}" />
     </view>
     <view class='info-box' style='margin-top:20rpx;'>
-      <text class='info-text'>联系人手机：</text>
+      <text class='info-text'>手机号：</text>
       <input class='info-input' type='number' maxlength="11" name="AGET_SecondMobile" placeholder="请输入手机号" value="{{agentInfo.AGET_SecondMobile}}" bindinput='getSecondMobile' />
     </view>
 
-    <view class='info-box' style='margin-top:20rpx;'>
+    <view class='info-box' style='margin-top:20rpx;display:none;'>
       <text class='info-text'></text>
       <input class='info-input' style='width:220rpx;' type='number' maxlength="6" name="secondCode" placeholder="请输入验证码" />
       <button style='width:170rpx;font-size: 13px;' bindtap='sendSMSAction2' disabled='{{canResend2}}'>{{resendText2}}</button>

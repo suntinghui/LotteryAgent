@@ -32,13 +32,13 @@ Page({
     AGET_SecondMobile: "",
   },
 
-  onLoad: function() {
+  onLoad: function () {
     that = this
     buyerId = wx.getStorageSync(app.globalData.kBuyer)
     this.queryInfo()
   },
 
-  sendSMSAction1: function() {
+  sendSMSAction1: function () {
 
     if (this.data.AGET_Mobile.length != 11) {
       util.showToast("请输入11位手机号");
@@ -90,8 +90,8 @@ Page({
 
   },
 
-  countDown1: function() {
-    timer1 = setTimeout(function() {
+  countDown1: function () {
+    timer1 = setTimeout(function () {
       console.log(remainTime1--);
 
       that.setData({
@@ -108,7 +108,7 @@ Page({
     }, 1000)
   },
 
-  sendSMSAction2: function() {
+  sendSMSAction2: function () {
 
     if (this.data.AGET_SecondMobile.length != 11) {
       util.showToast("请输入11位手机号");
@@ -159,8 +159,8 @@ Page({
     })
   },
 
-  countDown2: function() {
-    timer2 = setTimeout(function() {
+  countDown2: function () {
+    timer2 = setTimeout(function () {
       console.log(remainTime2--);
 
       that.setData({
@@ -177,20 +177,20 @@ Page({
     }, 1000)
   },
 
-  getMobile: function(e) {
+  getMobile: function (e) {
     this.data.AGET_Mobile = e.detail.value
   },
 
-  getSecondMobile: function(e) {
+  getSecondMobile: function (e) {
     this.data.AGET_SecondMobile = e.detail.value
   },
 
-  changeHeadImg: function(e) {
+  changeHeadImg: function (e) {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success: function(res) {
+      success: function (res) {
         perImgUrl = res.tempFilePaths[0];
 
         that.setData({
@@ -201,7 +201,7 @@ Page({
   },
 
   // 查询买伴个人信息
-  queryInfo: function(e) {
+  queryInfo: function (e) {
     util.showLoading("请稍候");
 
     wx.request({
@@ -211,7 +211,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded',
         'Authorization': 'token ' + util.getCookie()
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res.statusCode + "--" + JSON.stringify(res.data));
 
         util.hideLoading();
@@ -225,7 +225,7 @@ Page({
         })
 
       },
-      fail: function(e) {
+      fail: function (e) {
         console.log("request login fail......");
 
         util.hideLoading();
@@ -246,7 +246,7 @@ Page({
     return true;
   },
 
-  formSubmit: function(e) {
+  formSubmit: function (e) {
     if (!this.checkInput())
       return;
 
@@ -258,7 +258,7 @@ Page({
 
   },
 
-  updateInfo: function(e) {
+  updateInfo: function (e) {
     util.showLoading("请稍候");
 
     wx.request({
@@ -274,11 +274,10 @@ Page({
         'code': e.detail.value.code,
         'AGET_Address': e.detail.value.AGET_Address,
         'AGET_SecondName': e.detail.value.AGET_SecondName,
-        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile,
-        'secondCode': e.detail.value.secondCode
+        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile
 
       },
-      success: function(res) {
+      success: function (res) {
         console.log("===" + JSON.stringify(res))
 
         // 上传成功，继续上传申请人照片
@@ -286,10 +285,13 @@ Page({
           console.log(res.data.AGET_Uid);
           wx.setStorageSync(app.globalData.kBuyer, res.data.AGET_Uid);
 
-          util.showToast("修改成功")
+          wx.showModal({
+            title: '提示',
+            content: "修改成功",
+            showCancel: false,
+          })
 
         } else {
-          util.hideLoading();
 
           wx.showModal({
             title: '提示',
@@ -299,8 +301,7 @@ Page({
         }
 
       },
-      fail: function(e) {
-        util.hideLoading();
+      fail: function (e) {
 
         console.log(JSON.stringify(e))
 
@@ -310,11 +311,14 @@ Page({
           showCancel: false
         })
 
+      },
+      complete: function (e) {
+        util.hideLoading();
       }
     })
   },
 
-  updateInfoWithImg: function(e) {
+  updateInfoWithImg: function (e) {
     util.showLoading("请稍候");
 
     wx.uploadFile({
@@ -332,10 +336,9 @@ Page({
         'code': e.detail.value.code,
         'AGET_Address': e.detail.value.AGET_Address,
         'AGET_SecondName': e.detail.value.AGET_SecondName,
-        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile,
-        'secondCode': e.detail.value.secondCode
+        'AGET_SecondMobile': e.detail.value.AGET_SecondMobile
       },
-      success: function(res) {
+      success: function (res) {
         console.log(JSON.stringify(res))
 
         // 上传成功，继续上传申请人照片
@@ -355,7 +358,7 @@ Page({
           })
         }
       },
-      fail: function(e) {
+      fail: function (e) {
         util.hideLoading();
 
         console.log(JSON.stringify(e))

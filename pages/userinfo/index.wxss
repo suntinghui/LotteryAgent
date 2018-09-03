@@ -63,7 +63,10 @@
 }
 
 .submit-btn {
-  font-size: 14px;
-  width: 400rpx;
-  margin-top: 50rpx;
+  font-size: 15px;
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  margin-left: 40rpx;
+  width: 670rpx;
+  align-self: center;
 }
